@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>06绘图方法—设置渐变色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*绘图*/
+    var myGradient = ctx.createLinearGradient(0, 0, 0, 160);    //创建渐变对象，createLinearGradient方法的参数是(x1, y1, x2, y2)，其中x1和y1是起点坐标，x2和y2是终点坐标。
+    myGradient.addColorStop(0, "red");          //0~1之前添加颜色锚点
+    myGradient.addColorStop(.5, "green");         //0~1之前添加颜色锚点
+    myGradient.addColorStop(1, "blue");         //0~1之前添加颜色锚点
+    ctx.fillStyle = myGradient;     //用渐变对象填色
+    ctx.fillRect(0,0,200,100);      //绘制矩形
+</script>
+</body>
+</html>

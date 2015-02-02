@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>02绘图方法—绘制路径</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if(documentWidth/documentHeight>=scale){
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight*scale);
+    }else{
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth/scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*绘制路径*/
+    ctx.beginPath(); // 开始路径绘制
+    ctx.moveTo(100, 100); // 设置路径起点，坐标为(20,20)
+    ctx.lineTo(200, 100); // 绘制一条到(200,20)的直线
+    ctx.lineTo(200, 200); // 绘制一条到(200,200)的直线
+    ctx.lineTo(100, 200); // 绘制一条到(200,200)的直线
+    ctx.closePath();       //闭合直线
+    ctx.lineWidth = 10; // 设置线宽
+    ctx.strokeStyle = "#ff0000"; // 设置线的颜色
+    ctx.stroke(); // 进行线的着色，这时整条线才变得可见
+</script>
+</body>
+</html>

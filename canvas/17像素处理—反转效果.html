@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>17像素处理—反转效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var context = myCanvas.getContext("2d");
+    /*绘图*/
+    context.fillStyle = 'yellow';       //填充色
+    context.fillRect(100, 100, 400, 200);   //x轴坐标、y轴坐标、宽、高
+    /*绘图*/
+    var imageData = context.getImageData(0, 0, myCanvas.width, myCanvas.height);
+    imageData = filter(imageData);
+    context.putImageData(imageData, 0, 0);
+    /*
+    * 反转效果（invert）是指图片呈现一种色彩颠倒的效果。算法为红、绿、蓝通道都取各自的相反值（255-原值）。
+    */
+    function filter(pixels) {
+        var d = pixels.data;
+
+        for (var i = 0; i < d.length; i += 4) {
+            d[i] = 255 - d[i];
+            d[i+1] = 255 - d[i + 1];
+            d[i+2] = 255 - d[i + 2];
+        }
+
+        return pixels;
+    }
+</script>
+</body>
+</html>

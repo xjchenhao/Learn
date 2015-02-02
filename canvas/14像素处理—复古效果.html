@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>14像素处理—复古效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var context = myCanvas.getContext("2d");
+    /*绘图*/
+    context.fillStyle = 'yellow';       //填充色
+    context.fillRect(100, 100, 400, 200);   //x轴坐标、y轴坐标、宽、高
+    /*绘图*/
+    var imageData = context.getImageData(0, 0, myCanvas.width, myCanvas.height);
+    imageData = filter(imageData);
+    context.putImageData(imageData, 0, 0);
+    /*
+    * 复古效果（sepia）则是将红、绿、蓝三个像素，分别取这三个值的某种加权平均值，使得图像有一种古旧的效果。
+    */
+    function filter(pixels) {
+        var d = pixels.data;
+
+        for (var i = 0; i < d.length; i += 4) {
+            var r = d[i];
+            var g = d[i + 1];
+            var b = d[i + 2];
+            d[i]     = (r * 0.393)+(g * 0.769)+(b * 0.189); // red
+            d[i + 1] = (r * 0.349)+(g * 0.686)+(b * 0.168); // green
+            d[i + 2] = (r * 0.272)+(g * 0.534)+(b * 0.131); // blue
+        }
+
+        return pixels;
+    }
+</script>
+</body>
+</html>
