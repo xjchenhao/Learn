@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>19绘图变换—旋转</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*绘图*/
+    ctx.strokeStyle = 'blue';           //边框颜色
+    ctx.lineWidth = 1; // 设置线宽
+    ctx.strokeRect(150, 150, 100, 100);   //x轴坐标、y轴坐标、宽、高
+    //旋转
+    ctx.translate(150,150);     //设置原点
+    ctx.rotate(45*Math.PI/180);         //旋转45度
+    ctx.strokeRect(0, 0, 100, 100);   //基于原点的x轴坐标、y轴坐标、宽、高
+</script>
+</body>
+</html>

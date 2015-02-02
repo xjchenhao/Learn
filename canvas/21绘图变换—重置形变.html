@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>21绘图变换—重置形变</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*设置原点*/
+    ctx.translate(50,50);
+    /*
+    * 绘制一个矩形，通过 setTransform() 重置并创建新的变换矩阵，再次绘制矩形，重置并创建新的变换矩阵，然后再次绘制矩形。
+    * 请注意，每当您调用 setTransform() 时，它都会重置前一个变换矩阵然后构建新的矩阵，因此在下面的例子中，不会显示红色矩形，因为它在蓝色矩形下面：
+    */
+    ctx.fillStyle="yellow";
+    ctx.fillRect(0,0,250,100);
+
+    ctx.setTransform(1,0.5,-0.5,1,30,10);
+    ctx.translate(50,50);
+    ctx.fillStyle="red";
+    ctx.fillRect(0,0,250,100);
+
+    ctx.setTransform(1,0.5,-0.5,1,30,10);
+    ctx.translate(50,50);
+    ctx.fillStyle="blue";
+    ctx.fillRect(0,0,250,100);
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>25插入文本—填充文本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*插入普通文字*/
+    ctx.font = "20px Georgia";
+    ctx.fillText("Hello World!", 10, 50);
+    /*插入渐变色文字*/
+    ctx.font = "30px Verdana";
+    var gradient = ctx.createLinearGradient(0, 0, myCanvas.width, 0);
+    gradient.addColorStop(0, "magenta");
+    gradient.addColorStop(.5, "blue");
+    gradient.addColorStop(1, "red");
+    /*用渐变填色*/
+    ctx.fillStyle = gradient;
+    ctx.fillText("Canvas", 10, 90);
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>23插入文本—对齐方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if (documentWidth / documentHeight >= scale) {
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight * scale);
+    } else {
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth / scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*画参考线*/
+    ctx.strokeStyle="blue";     //参考线颜色
+    ctx.moveTo(150,20);         //开始位置
+    ctx.lineTo(150,170);         //结束位置
+    ctx.stroke();         //着色
+    /*设置字体*/
+    ctx.font="15px Arial";
+
+    /*显示不同的 textAlign 值*/
+    ctx.textAlign="start";
+    ctx.fillText("textAlign=start",150,60);
+    ctx.textAlign="end";
+    ctx.fillText("textAlign=end",150,80);
+    ctx.textAlign="left";
+    ctx.fillText("textAlign=left",150,100);
+    ctx.textAlign="center";
+    ctx.fillText("textAlign=center",150,120);
+    ctx.textAlign="right";
+    ctx.fillText("textAlign=right",150,140);
+</script>
+</body>
+</html>
