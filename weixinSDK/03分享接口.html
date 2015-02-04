@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>03分享接口</title>
+</head>
+<body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        appId: 'wx449a6d3aaa9de60d',
+        timestamp: 1420774989,
+        nonceStr: 'jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&noncestr=Wm3WZYTPz0wzccnW&timestamp=1414587457&url=http://mp.weixin.qq.com?params=value',
+        signature: '',
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo'
+        ]
+    });
+    wx.ready(function () {
+        wx.onMenuShareTimeline({
+            title: '怎么不成功', // 分享标题
+            link: 'http://www.baidu.com', // 分享链接
+            imgUrl: '12', // 分享图标
+            success: function () {
+               alert('123');
+            },
+            cancel: function () {
+                alert('456');
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '999', // 分享标题
+            desc: '888', // 分享描述
+            link: 'http://www.baidu.com', // 分享链接
+            imgUrl: '12', // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                alert('1');
+            },
+            cancel: function () {
+                alert('2');
+            }
+        });
+    });
+</script>
+</body>
+</html>
