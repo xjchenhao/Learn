@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>12动画效果</title>
+    <title>动画效果—requestAnimationFrame方式</title>
     <style>
         * {
             margin: 0;
@@ -24,6 +24,33 @@
     您的浏览器不支持canvas！
 </canvas>
 <script>
+    /*封装requestAnimationFrame兼容*/
+    (function() {
+        var lastTime = 0;
+        var vendors = ['webkit', 'moz'];
+        for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
+            window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
+
+        if (!window.requestAnimationFrame) {
+            window.requestAnimationFrame = function(callback, element) {
+                var currTime = new Date().getTime();
+                var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+                var id = window.setTimeout(function() {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+        if (!window.cancelAnimationFrame) {
+            window.cancelAnimationFrame = function(id) {
+                clearTimeout(id);
+            };
+        }
+    }());
     /*调整画布宽高，保持等比缩放*/
     var myCanvas = document.getElementById("myCanvas"),
             documentWidth = document.documentElement.clientWidth,
@@ -42,9 +69,9 @@
     var posX = 20,
             posY = 100;
 
-    setInterval(function() {
+    function step() {
         context.fillStyle = "black";
-        context.fillRect(0,0,myCanvas.width, myCanvas.height);
+        context.fillRect(0, 0, myCanvas.width, myCanvas.height);
 
         posX += 1;
         posY += 0.25;
@@ -52,10 +79,12 @@
         context.beginPath();
         context.fillStyle = "white";
 
-        context.arc(posX, posY, 10, 0, Math.PI*2, true);
+        context.arc(posX, posY, 10, 0, Math.PI * 2, true);
         context.closePath();
         context.fill();
-    }, 30);
+        requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
 </script>
 </body>
 </html>
