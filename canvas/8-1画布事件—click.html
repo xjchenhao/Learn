@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>画布事件—click</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="640">
+    您的浏览器不支持canvas！
+</canvas>
+<script>
+    /*调整画布宽高，保持等比缩放*/
+    var myCanvas = document.getElementById("myCanvas"),
+            documentWidth = document.documentElement.clientWidth,
+            documentHeight = document.documentElement.clientHeight,
+            scale = myCanvas.width / myCanvas.height;
+    if(documentWidth/documentHeight>=scale){
+        myCanvas.setAttribute('height', documentHeight);
+        myCanvas.setAttribute('width', documentHeight*scale);
+    }else{
+        myCanvas.setAttribute('width', documentWidth);
+        myCanvas.setAttribute('height', documentWidth/scale);
+    }
+    /*创建画布对象*/
+    var ctx = myCanvas.getContext("2d");
+    /*绘制路径*/
+    ctx.fillStyle = 'yellow';       //填充色
+    ctx.fillRect(100, 100, 400, 200);   //x轴坐标、y轴坐标、宽、高
+    ctx.rect(100, 100, 400, 200);   //x轴坐标、y轴坐标、宽、高
+    /*事件*/
+    myCanvas.addEventListener('click',function(e){
+        var p=position(e);
+        if(ctx.isPointInPath(p.x, p.y)){
+            console.log(ctx);
+        }
+    },false);
+    function position(ev){
+        var x, y;
+        if (ev.layerX || ev.layerX == 0) {
+            x = ev.layerX;
+            y = ev.layerY;
+        } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+            x = ev.offsetX;
+            y = ev.offsetY;
+        }
+        return {x: x, y: y};
+    }
+</script>
+</body>
+</html>
