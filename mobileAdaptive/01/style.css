@@ -1,0 +1,355 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+main {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]),
+[hidden] {
+  display: none;
+}
+@media only screen and (max-width: 300px) {
+  html {
+    font-size: 8.33333px;
+  }
+  .viewport {
+    max-width: 300px;
+  }
+}
+@media only screen and (max-width: 310px) and (min-width: 300px) {
+  html {
+    font-size: 8.33333px;
+  }
+  .viewport {
+    max-width: 310px;
+  }
+}
+@media only screen and (max-width: 320px) and (min-width: 310px) {
+  html {
+    font-size: 8.61111px;
+  }
+  .viewport {
+    max-width: 320px;
+  }
+}
+@media only screen and (max-width: 350px) and (min-width: 320px) {
+  html {
+    font-size: 8.88889px;
+  }
+  .viewport {
+    max-width: 350px;
+  }
+}
+@media only screen and (max-width: 360px) and (min-width: 350px) {
+  html {
+    font-size: 9.72222px;
+  }
+  .viewport {
+    max-width: 360px;
+  }
+}
+@media only screen and (max-width: 400px) and (min-width: 360px) {
+  html {
+    font-size: 10px;
+  }
+  .viewport {
+    max-width: 400px;
+  }
+}
+@media only screen and (max-width: 470px) and (min-width: 400px) {
+  html {
+    font-size: 11.11111px;
+  }
+  .viewport {
+    max-width: 470px;
+  }
+}
+@media only screen and (max-width: 480px) and (min-width: 470px) {
+  html {
+    font-size: 13.05556px;
+  }
+  .viewport {
+    max-width: 480px;
+  }
+}
+@media only screen and (max-width: 540px) and (min-width: 480px) {
+  html {
+    font-size: 13.33333px;
+  }
+  .viewport {
+    max-width: 540px;
+  }
+}
+@media only screen and (max-width: 560px) and (min-width: 540px) {
+  html {
+    font-size: 15px;
+  }
+  .viewport {
+    max-width: 560px;
+  }
+}
+@media only screen and (max-width: 570px) and (min-width: 560px) {
+  html {
+    font-size: 15.55556px;
+  }
+  .viewport {
+    max-width: 570px;
+  }
+}
+@media only screen and (max-width: 630px) and (min-width: 570px) {
+  html {
+    font-size: 15.83333px;
+  }
+  .viewport {
+    max-width: 630px;
+  }
+}
+@media only screen and (max-width: 640px) and (min-width: 630px) {
+  html {
+    font-size: 17.5px;
+  }
+  .viewport {
+    max-width: 640px;
+  }
+}
+@media only screen and (max-width: 710px) and (min-width: 640px) {
+  html {
+    font-size: 17.77778px;
+  }
+  .viewport {
+    max-width: 710px;
+  }
+}
+@media only screen and (max-width: 720px) and (min-width: 710px) {
+  html {
+    font-size: 19.72222px;
+  }
+  .viewport {
+    max-width: 720px;
+  }
+}
+@media only screen and (min-width: 720px) {
+  html {
+    font-size: 20px;
+  }
+  .viewport {
+    width: 720px;
+  }
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+a:active,
+a:focus {
+  outline: none;
+}
+input,
+textarea {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  -webkit-user-select: none;
+  background-color: #f2f2f2;
+}
+.viewport {
+  margin: 0 auto;
+  position: relative;
+}
+.top-card {
+  text-align: center;
+  background-color: #f64349;
+  overflow: hidden;
+}
+.top-card .main {
+  margin-top: 1.29374983828127rem;
+  line-height: 1;
+}
+.top-card .main .rate .tit {
+  font-size: 1.574999803125025rem;
+  color: #fcc;
+}
+.top-card .main .rate .cont {
+  margin-top: 0.562499929687509rem;
+  font-size: 5.624999296875088rem;
+  color: #fff;
+}
+.top-card .main .rate .cont small {
+  font-size: 3.374999578125053rem;
+}
+.top-card .main .rule {
+  margin-top: 1.406249824218772rem;
+  font-size: 1.687499789062526rem;
+  color: #fcc;
+}
+.top-card .main .rule .divide {
+  padding: 0rem 1.406249824218772rem;
+}
+.top-card .main .rule b {
+  color: #fff;
+  padding: 0rem 0.562499929687509rem;
+}
+.top-card .other {
+  margin-top: 1.968749753906281rem;
+}
+.top-card .other .info {
+  height: 4.499999437500071rem;
+  font-size: 1.349999831250021rem;
+  line-height: 4.499999437500071rem;
+  background-color: #f65e63;
+  color: #febdbd;
+}
+.top-card .other .info b {
+  color: #fff;
+  padding: 0rem 0.562499929687509rem;
+}
+.top-card .other .progress {
+  display: none;
+}
+.top-card .other.ing .info {
+  background-color: transparent;
+}
+.top-card .other.ing .progress {
+  position: absolute;
+  margin-top: -4.499999437500071rem;
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-size: 0;
+}
+.top-card .other.ing .progress em {
+  position: relative;
+  display: inline-block;
+  width: 30.374996203125473rem;
+  height: 0.337499957812505rem;
+  background-color: #fff;
+  border-radius: 0.281249964843754rem;
+}
+.top-card .other.ing .progress em i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 0%;
+  height: 0.337499957812505rem;
+  background-color: #ff9;
+  border-radius: 0.281249964843754rem;
+}

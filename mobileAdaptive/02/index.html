@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>js换算根目录字号方式</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="top-card">
+        <div class="main">
+            <div class="rate">
+                <div class="tit">年化收益</div>
+                <div class="cont">10.88
+                    <small>%</small>
+                </div>
+            </div>
+            <div class="rule">期限<b>90</b>天<span class="divide">|</span><b>1000</b>元起购</div>
+        </div>
+        <div class="other ing">
+            <div class="info">总金额<b id="totalAmount" data-val="5000000.00">500,000.00</b>元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开售时间：<b>明天10:00</b>
+            </div>
+            <div class="progress"><em><i style="width: 50%"></i></em></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script>
+        htmlPx();
+        //改变窗口大小
+        $(window).resize(function(){
+            htmlPx();
+        });
+        //计算根元素的字体大小
+        function htmlPx(){
+            var w = $(window).width() > 750 ? 750 : $(window).width();
+            var px = w / 16;
+            $("html").css("font-size",px);
+        }
+    </script>
+</body>
+</html>
