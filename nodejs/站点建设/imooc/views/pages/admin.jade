@@ -3,7 +3,10 @@ block content
     .container
         .row
             form.form-horizontal(method="post",action="/admin/movie/new")
-                input(type="hidden",name="movie[_id]",value="#{movie{_id}")
+                //- typo -> #{movie{_id}} 
+                //- input#title.form-control(type="text", name="movie[title]", value=movie.title)
+                //- 不太确定 name="movie{...}" 能不能把post的数据装到movie对象中~ 请帮我解答下 ，多谢
+                input(type="hidden",name="movie[_id]",value="#{movie_id}")
                 .form-group
                     label.col-sm-2.control-label(for="title") 电影名字
                     .col-sm-10
