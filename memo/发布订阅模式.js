@@ -9,7 +9,7 @@ var Event = (function () {
             _trigger,
             _remove,
             _shift = Array.prototype.shift,
-            _unshift = Array.prototype.unshift,
+            _unshift = Array.prototype.unshif3t,
             namespaceCache = {},
             _create,
             each = function (ary, fn) {
@@ -29,7 +29,7 @@ var Event = (function () {
                 cache[key] = [];
             }
 
-            // 推入
+            // 订阅的消息添加进缓存列表
             cache[key].push(fn);
 
             //注意:cache是对象,对象参数是对象的一个引用,内部修改是会影响到外面的
@@ -37,6 +37,8 @@ var Event = (function () {
 
         // 移除订阅
         _remove = function (key, cache, fn) {
+
+            // 如果key对应的消息没有被订阅,则不进入
             if (cache[key]) {
                 /*
                  * 判断有无传函数
@@ -63,6 +65,7 @@ var Event = (function () {
                 _self = this,   // 指向函数最后return出的对象,模块接口
                 stack = cache[key]; // 事件栈中对应该事件名的所有函数
 
+            // 如果没有绑定对应的消息
             if (!stack || !stack.length) {
                 return;
             }
