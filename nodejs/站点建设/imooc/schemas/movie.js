@@ -32,7 +32,7 @@ MovieSchema.pre('save', function () {
     next();
 });
 
-MovieSchema.statice = {
+MovieSchema.statics = {
     fetch: function (cd) { // 取出数据库里所有数据
         return this
             .find({})

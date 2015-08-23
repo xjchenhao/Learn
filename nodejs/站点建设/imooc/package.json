@@ -1,10 +1,12 @@
 {
   "name": "mongoose-example",
-  "version": "0.0.1",
+  "description":"imooc的教程测试",
+  "version": "0.0.2",
+  "main":"app.js",
   "dependencies": {
     "express": "4.13.0",
-    "mongodb": "2.0.35",
-    "mongoose": "2.10.3",
+    "mongodb": "*",
+    "mongoose": "*",
     "jade": "1.11.0",
     "underscore": "1.8.3",
     "body-parser": "1.13.1",

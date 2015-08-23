@@ -10,7 +10,19 @@ var port = process.env.PORT || 3000;
 var app = express();
 
 //连接本地数据库
-mongoose.connect('mongodb://localhost/imooc');
+
+/*
+* 注意命令行开启mangodb服务:
+* mongod --dbpath=./db --port 27017
+* */
+mongoose.connect('mongodb://127.0.0.1/imooc');
+
+mongoose.connection.on("error", function (error) {
+    console.log("数据库连接失败：" + error);
+});
+mongoose.connection.on("open", function () {
+    console.log("------数据库连接成功！------");
+});
 
 //视图文件的路径
 app.set('views', './views/pages');
@@ -19,11 +31,11 @@ app.set('views', './views/pages');
 app.set('view engine', 'jade');
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //静态资源的路径
-app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //设置端口号
 app.listen(port);
@@ -31,7 +43,8 @@ app.listen(port);
 //打印当前服务端口
 console.log('imooc started on port ' + port);
 
-//页面路由
+//--------------------------------------------------------------【页面渲染】
+// 首页
 app.get('/', function (req, res) {
     Movie.fetch(function (err, movies) {
         if (err) {
@@ -45,33 +58,21 @@ app.get('/', function (req, res) {
     });
 });
 
+// 列表页
 app.get('/list', function (req, res) {
-    res.render('list', {
-        title: 'imoooc 列表页',
-        movies: [{
-            _id: 1,
-            title: '机械战警',
-            doctor: '何塞.帕迪利亚',
-            year: 2014,
-            country: '美国',
-            language: '英语',
-            poster: 'http://tu1.xiamp4.com/20140210202546153.jpg',
-            flash: 'http://player.youku.com/player.php/sid/XNJA1Njc0NTUy/v.swf',
-            summary: '我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述'
-        }, {
-            _id: 1,
-            title: '机械战警',
-            doctor: '何塞.帕迪利亚',
-            year: 2014,
-            country: '美国',
-            language: '英语',
-            poster: 'http://tu1.xiamp4.com/20140210202546153.jpg',
-            flash: 'http://player.youku.com/player.php/sid/XNJA1Njc0NTUy/v.swf',
-            summary: '我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述'
-        }]
+    Movie.fetch(function (err, movies) {
+        if (err) {
+            console.log(err);
+        }
+
+        res.render('index', {
+            title: 'imooc 列表页',
+            movies: movies
+        });
     });
 });
 
+// 详情页
 app.get('/movie/:id', function (req, res) {
     var id = req.params.id;
 
@@ -83,7 +84,7 @@ app.get('/movie/:id', function (req, res) {
     });
 });
 
-//admin update movie
+// 更新
 app.get('/admin/update/:id', function (req, res) {
     var id = req.params.id;
 
@@ -97,10 +98,30 @@ app.get('/admin/update/:id', function (req, res) {
     }
 });
 
-//admin post movie
+// 录入
+app.get('/admin/movie', function (req, res) {
+    res.render('admin', {
+        title: 'imoooc 后台录入页',
+        movie:{
+            title: '',
+            doctor:'',
+            year:'',
+            country:'',
+            language:'',
+            poster: '',
+            flash: '',
+            summary:''
+        }
+    });
+});
+
+
+//--------------------------------------------------------------【请求接口】
+
+//录入新数据
 app.post('/admin/movie/new', function (res, req) {
     var id = res.body.movie._id;
-    var movieObj = req.body.movie;
+    var movieObj = res.body.movie;
     var _movie;
     if (id !== 'undefined') {
         Movie.findById(id, function (err, movie) {
