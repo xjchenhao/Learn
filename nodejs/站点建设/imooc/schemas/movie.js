@@ -28,7 +28,8 @@ MovieSchema.pre('save', function () {
     } else {
         this.meta.updateAt = Date.now()
     }
-
+    // 经常容易忘了next() 然后就悲剧了
+    // 这种middle ware 一定要加next ^_^
     next();
 });
 
