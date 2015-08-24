@@ -81,6 +81,7 @@ app.get('/movie/:id', function (req, res) {
             title: 'imooc ' + movie.title,
             movie: movie
         });
+        return false;
     });
 });
 
@@ -155,13 +156,13 @@ app.post('/admin/movie/new', function (res, req) {
                 console.log(err);
             }
 
-            res.redirect('/movie/' + movie._id);
+            req.redirect('/movie/' + movie._id);
         });
     }
 });
 
 //list page
-app.get('/admin/list', function (req, res) {
+app.get('/admin/list', function (res, req) {
     Movie.fetch(function (err, movies) {
         if (err) {
             console.log(err);

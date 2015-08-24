@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var MovieSchema = new mongoose.Schema({
     doctor: String,
-    title: String,
+    title: {type: String, required: true, unique: true},
     language: String,
     country: String,
     summary: String,
@@ -21,7 +21,7 @@ var MovieSchema = new mongoose.Schema({
 });
 
 //每次在存储数据之前都会来调用一下这个方法
-MovieSchema.pre('save', function () {
+MovieSchema.pre('save', function (next) {
     //数据是否是新添加的
     if (this.isNew) {
         this.meta.createAt = this.meta.updateAt = Date.now()
@@ -31,6 +31,7 @@ MovieSchema.pre('save', function () {
 
     next();
 });
+
 
 MovieSchema.statics = {
     fetch: function (cd) { // 取出数据库里所有数据
