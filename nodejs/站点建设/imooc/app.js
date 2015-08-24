@@ -12,9 +12,9 @@ var app = express();
 //连接本地数据库
 
 /*
-* 注意命令行开启mangodb服务:
-* mongod --dbpath=./db --port 27017
-* */
+ * 注意命令行开启mangodb服务:
+ * mongod --dbpath=./db --port 27017
+ * */
 mongoose.connect('mongodb://127.0.0.1/imooc');
 
 mongoose.connection.on("error", function (error) {
@@ -77,6 +77,9 @@ app.get('/movie/:id', function (req, res) {
     var id = req.params.id;
 
     Movie.findById(id, function (err, movie) {
+        if (err) {
+            console.log(err);
+        }
         res.render('detail', {
             title: 'imooc ' + movie.title,
             movie: movie
@@ -103,16 +106,30 @@ app.get('/admin/update/:id', function (req, res) {
 app.get('/admin/movie', function (req, res) {
     res.render('admin', {
         title: 'imoooc 后台录入页',
-        movie:{
+        movie: {
             title: '',
-            doctor:'',
-            year:'',
-            country:'',
-            language:'',
+            doctor: '',
+            year: '',
+            country: '',
+            language: '',
             poster: '',
             flash: '',
-            summary:''
+            summary: ''
         }
+    });
+});
+
+// 管理列表
+app.get('/admin/list', function (req, res) {
+    Movie.fetch(function (err, movies) {
+        if (err) {
+            console.log(err);
+        }
+
+        res.render('list', {
+            title: 'imooc 列表页',
+            movies: movies
+        });
     });
 });
 
@@ -120,9 +137,9 @@ app.get('/admin/movie', function (req, res) {
 //--------------------------------------------------------------【请求接口】
 
 //录入新数据
-app.post('/admin/movie/new', function (res, req) {
-    var id = res.body.movie._id;
-    var movieObj = res.body.movie;
+app.post('/admin/movie/new', function (req, res) {
+    var id = req.body.movie._id;
+    var movieObj = req.body.movie;
     var _movie;
     if (id !== 'undefined') {
         Movie.findById(id, function (err, movie) {
@@ -156,21 +173,20 @@ app.post('/admin/movie/new', function (res, req) {
                 console.log(err);
             }
 
-            req.redirect('/movie/' + movie._id);
+            res.redirect('/movie/' + movie._id);
         });
     }
 });
 
-//list page
-app.get('/admin/list', function (res, req) {
-    Movie.fetch(function (err, movies) {
+// 删除记录
+
+app.post('/admin/movie/delete', function (req, res) {
+    var id = req.body._id;
+    Movie.remove({_id: id}, function (err, docs) {
         if (err) {
             console.log(err);
         }
-
-        res.render('index', {
-            title: 'imooc 列表页',
-            movies: movies
-        });
+        console.log('删除成功');
+        res.send(docs);
     });
 });

@@ -25,3 +25,19 @@ block content
                             td: a(target="_blank",href="../admin/update/#{item._id}") 修改
                             td
                                 button.btn.btn-danger.del(type="button",data-id="#{item._id}") 删除
+block script
+    script.
+        $('[data-id]').on('click',function(){
+            $.ajax({
+                type: "POST",
+                url: "/admin/movie/delete",
+                async: true,
+                dataType: "json",
+                data: {
+                    _id:$(this).data("id")
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
