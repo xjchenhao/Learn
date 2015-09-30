@@ -28,7 +28,7 @@ var cheerio = require('cheerio');
 
 function filterChapters(html) {
     var $ = cheerio.load(html),
-        chapters = $('.learnchapter'),
+        chapters = $('.chapter'),
         courseData = [];
 
     chapters.each(function (item) {
