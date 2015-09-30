@@ -40,7 +40,6 @@ function filterChapters(html) {
                 videos: []
             };
 
-        console.log(chapter.find('.video'));
         videos.each(function (item) {
             var video = $(this).find('.studyvideo'),
                 videoTitle = video.text(),
