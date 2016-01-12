@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="import" href="../includes/hdMeta.html?__inline">
+    <title>404</title>
+    <link rel="import" href="../includes/hdStyle.html?__inline">
+</head>
+<body>
+<section id="pageLookforward" class="page" data-onpagefirstinto="myCenterInit" data-callback="myCenterInto"
+         data-fallback="myCenterOut">
+    <div class="ui-load-content ui-load-state not-found">
+        <div class="describe-con">诶呀,页面君走丢了...</div>
+        <div class="btn-con">
+            <a id="backBtn" href="javascript:;">返回上一页</a>
+            <a id="reloadBtn" class="common-link" href="javascript:;">刷新试试</a>
+        </div>
+    </div>
+</section>
+<script>
+    var elmBackBtn=document.getElementById('backBtn'),
+        elmReloadBtn=document.getElementById('reloadBtn');
+
+    elmBackBtn.onclick=function(){
+        window.history.go(-1);
+    };
+
+    elmReloadBtn.onclick=function(){
+        window.location.reload();
+    };
+</script>
+</body>
+</html>

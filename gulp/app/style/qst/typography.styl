@@ -1,0 +1,136 @@
+@import "variables"
+@import "util";
+
+//IE7-下，匹配到第一个字体后不会根据字符继续在family列表中进行fallback
+$font-family() {
+  if arguments is 'base'{
+    font-family: $default-base-font-family
+    if $support-old-ie{
+      \*font-family: $default-old-ie-base-font-family
+    }
+  }else if arguments is 'heading' {
+    font-family: $default-heading-font-family
+    if $support-old-ie{
+      \*font-family: $default-old-ie-heading-font-family
+    }
+  }else if arguments is 'code' {
+    font-family: $default-code-font-family
+    if $support-old-ie{
+      \*font-family: $default-old-ie-code-font-family
+    }
+  } else{
+    font-family:arguments
+  }
+}
+
+//指定参数（行数）的功能只支持WebKit
+$ellipsis() {
+  overflow: hidden;
+  if arguments{
+    display: -webkit-box;
+    -webkit-line-clamp: arguments
+    -webkit-box-orient: vertical;
+  }else{
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// 阻止长字符串（例如url或无意义连续英文字符）打破布局
+$force-wrap() {
+  white-space: pre;           // CSS 2.0
+  white-space: pre-wrap;      // CSS 2.1
+  white-space: pre-line;      // CSS 3.0
+  white-space: -pre-wrap;     // Opera 4-6
+  white-space: -o-pre-wrap;   // Opera 7
+  white-space: -moz-pre-wrap; // Mozilla
+  white-space: -hp-pre-wrap;  // HP Printers
+  word-wrap: break-word;      // IE 5+
+}
+
+// 隐藏文字
+$hide-text(){
+  if $support-old-ie{
+    text-indent: -9999px;
+    overflow: hidden;
+    text-align: left;
+  }else{
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+  }
+}
+
+// 用于隐藏那些增加可访问性的文字，注意与hide-text的区别是，他隐藏整个元素
+$invisible() {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  if $support-old-ie{
+    \*clip: rect(1px 1px 1px 1px);
+  }
+}
+
+
+// 用于辅助计算字体的em和rem值
+$font-size-rem() {
+  if $original-size{
+    font-size:arguments;
+  }
+  font-size: unit(arguments /$default-font-size, rem)
+}
+
+$font-face(family-name, font-path, font-weight=normal, font-style=normal, include-svg=false){
+  font-family:family-name;
+  src:url(font-path+'.eot');
+  if include-svg{
+    src:url(font-path+'.eot?#iefix') format("embedded-opentype"),url(font-path+'.woff') format('woff'), url(font-path+'.ttf') format("truetype"), url(font-path+'.svg#'+family-name) format('svg');
+  }else{
+    src:url(font-path+'.eot?#iefix') format("embedded-opentype"),url(font-path+'.woff') format('woff'), url(font-path+'.ttf') format("truetype");
+  }
+  font-weight: font-weight;
+  font-style: font-style;
+}
+
+// 实现链接默认无下划线，hover后有下划线的样式
+$hover-link() {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// 将链接变成默认的文字样式
+$unstyled-link() {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  &:active, &:focus {
+    outline: none;
+  }
+}
+//todo:首字下沉
+$drop-cap(line-height, lines=2, margin-right=1em){
+
+}
+//todo:用于实现多字下沉样式
+$drop-cap-inline(line-height, lines=2, margin-right=1em){
+
+}
+//todo: 按照“垂直的旋律”来排版文字，适合中文阅读
+$rhythm(font-size, line-height){
+
+}
+//用于设置单行文本垂直居中。
+$centered-line(height,is-input=false){
+  if is-input{
+    height:height;
+    line-height:s(''+height+'\0');
+  }else{
+    height:height;
+    line-height:height
+  }
+}

@@ -1,0 +1,2603 @@
+@import 'qst/all'
+@import 'config'
+
+$default-font-size = 17.77777778px;
+
+//--------------------------------------------------------【主页】
+//主页底部导航
+#pageHome, #pageProList, #pageUser, #pageMore {
+  margin-bottom: $rem(100px);
+}
+
+#homeNavbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  .viewport {
+    height: $rem(98px);
+    border-top: 1px solid #e0e0e0;
+    background-color: #fff;
+  }
+  ul {
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+  }
+  li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    a {
+      display: block;
+      color: $ui-font-color-gray-neutral
+    }
+    .icon {
+      display: inline-block;
+      font-size: $rem(45px);
+      margin: $rem(10px 0);
+    }
+    span {
+      display: block;
+      font-size: $rem(22px);
+      line-height: 1
+    }
+    &.on a {
+      color: #f75555;
+    }
+  }
+}
+
+//钱庄首页
+#pageHome {
+  .slide-con {
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    width 100%
+    height $rem(boxheight = 280px)
+    ul {
+      position: absolute
+      width 100%
+      height 100%
+      li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2
+        overflow: hidden;
+        width: 100%;
+        text-align: center;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        background url("../image/banner-default.png") no-repeat center top
+        background-size $rem(640px auto);
+      }
+      a {
+        display: block
+      }
+      img {
+        width: 100%;
+        height: $rem(boxheight)
+      }
+    }
+    ol {
+      position: absolute;
+      z-index: 3;
+      right: 0;
+      bottom: $rem(16px);
+      width: 100%;
+      text-align: center;
+      li {
+        display: inline-block;
+        width: $rem(15x);
+        height: $rem(15x);
+        margin-right: $rem(7px);
+        border-radius: 100%;
+        background-color: rgba(255, 255, 255, .6)
+        &.on {
+          background-color: rgba(255, 255, 255, 1)
+        }
+      }
+    }
+  }
+  .product-con {
+    position: relative
+    margin: $rem(40px 30px 0);
+    padding-bottom: $rem(30px);
+    text-align: center
+    .tit {
+      font-size: $rem(32px);
+      color: #333
+    }
+    .cont {
+      margin-top: $rem(30px)
+    }
+    .main {
+      width: $rem(300px);
+      height: $rem(300px);
+      margin: 0 auto
+      overflow: hidden
+      background no-repeat center center
+      background-size contain
+      .tits {
+        margin-top: $rem(50px);
+        font-size: $rem(26px);
+        color: #666
+      }
+      .conts {
+        margin-top: $rem(30px);
+        font-size: $rem(80px);
+        color: $ui-global-color-main
+        display: inline-block;
+        border-bottom 1px solid #ccc
+        padding-bottom: $rem(25px);
+        small {
+          font-size: $rem(30px);
+        }
+      }
+      .time {
+        margin-top: $rem(20px);
+        font-size: $rem(28px);
+        color: #666
+      }
+      .reward {
+        margin: $rem(-5px auto -20px);
+        width: 80%
+        text-align: center
+        font-size: $rem(24px);
+        color: $ui-global-color-main
+        $browser-prefix('transform', translateY(-50%))
+        background-color #fff
+        span {
+          font-size: $rem(35px);
+        }
+      }
+    }
+    .info {
+      margin-top: $rem(20px);
+      font-size: $rem(28px);
+      color: #666
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      li {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        &:nth-child(1) {
+          padding-right: $rem(40px);
+          text-align: right
+        }
+        &:nth-child(2) {
+          border-left: 1px solid #ccc
+          padding-left: $rem(40px);
+          text-align: left
+        }
+      }
+    }
+    .operation {
+      margin-top: $rem(20px);
+      .ui-btn {
+        display: block
+        font-size: $rem(32px);
+        line-height: $rem(80px);
+      }
+    }
+    .tips {
+      margin-top: $rem(25px);
+      font-size: $rem(22px);
+      color: #999
+      .icon {
+        display: inline-block
+        font-size: $rem(35px);
+        color: #6eb92b
+      }
+    }
+    .mark {
+      position: absolute
+      right: $rem(10px);
+      top: 0;
+      span {
+        position: absolute
+        width: $rem(70px);
+        right: $rem(-10px);
+        top: $rem(15px);
+        text-align: center
+        z-index: 1
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        color: #fff
+        font-size: $rem(22px);
+      }
+      .icon-pro-mark {
+        position: absolute
+        right: 0
+        top: 0
+        font-size: $rem(70px);
+        &.red {
+          color: #f35343
+        }
+        &.orange {
+          color: #ff8100
+        }
+        &.green {
+          color: #6eb92b
+        }
+      }
+    }
+  }
+}
+
+//产品列表
+#pageProList {
+  .banner {
+    height: $rem(85px);
+    border-bottom: 1px solid #ccc
+    a {
+      display: block
+    }
+    img {
+      width: 100%
+    }
+  }
+  .list {
+    li {
+      position: relative
+      $box-sizing(border-box)
+      padding: $rem(35px 10px 35px 175px);
+      height: $rem(185px);
+      border-bottom 1px solid #eee
+      .tit {
+        font-size: $rem(28px);
+        color: #333
+        .tag {
+          font-size: $rem(18px);
+          padding: $rem(3px 5px);
+          margin-left: $rem(15px);
+          border-radius $rem(5px)
+          vertical-align: middle
+          &.red {
+            color: #f75555
+            border: 1px solid #f75555
+          }
+        }
+      }
+      .cont {
+        margin-top: $rem(10px);
+        .tits {
+          font-size: $rem(22px);
+          color: #999
+        }
+        .conts {
+          display: inline-block
+          font-size: $rem(36px);
+          margin-left: $rem(15px);
+          color: $ui-global-color-main
+          small {
+            font-size: $rem(28px);
+          }
+        }
+        .info {
+          margin-top: $rem(20px);
+          font-size: $rem(20px);
+          color: #999
+          line-height: $rem(30px);
+          span {
+            color: #333
+          }
+          .divider {
+            display: inline-block
+            width: 1px
+            height: $rem(30px);
+            background-color: #ccc
+            vertical-align: bottom
+            margin: $rem(0 15px);
+          }
+        }
+      }
+      .mark {
+        position: absolute
+        right: $rem(10px);
+        top: $rem(10px);
+        span {
+          position: absolute
+          width: $rem(70px);
+          right: $rem(-10px);
+          top: $rem(15px);
+          text-align: center
+          z-index: 1
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          color: #fff
+          font-size: $rem(22px);
+        }
+        .icon-pro-mark {
+          position: absolute
+          right: 0
+          top: 0
+          font-size: $rem(70px);
+          &.red {
+            color: #f35343
+          }
+          &.orange {
+            color: #ff8100
+          }
+          &.green {
+            color: #6eb92b
+          }
+        }
+      }
+      .icon-con {
+        .count-money {
+          position: absolute
+          left: $rem(40px);
+          top: $rem(25px);
+          width: $rem(89px);
+          height: $rem(117px);
+          background url("../image/moneybaby/count-money.png") no-repeat center center;
+          background-size: $rem(89px 117px);
+        }
+        .progressbar {
+          position: absolute
+          left: $rem(30px);
+          top: $rem(30px);
+          width: $rem(121px);
+          height: $rem(121px);
+          background no-repeat center center
+          background-size $rem(121px auto);
+          .progress {
+            color: #ff5f5f;
+            .tit {
+              font-size: $rem(24px);
+              color: #ff5f5f
+            }
+          }
+          .end {
+            text-align: center
+            line-height: @height;
+            font-size: $rem(40px);
+            color: #999
+          }
+          .prepare {
+            {$public-center-vertical}
+            left: 0;
+            width: 100%
+            color: #ff5f5f
+            text-align: center
+            .tits {
+              font-size: $rem(24px);
+            }
+            .conts {
+              margin-top: $rem(5px);
+              font-size: $rem(32px);
+            }
+          }
+          .progress {
+            font-size: $rem(45px);
+            text-align: center
+            line-height: @height;
+            small {
+              font-size: $rem(20px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//我的钱庄
+#pageUser {
+  background-color $ui-bg-color-gray
+  .account-overview-con {
+    padding: $rem(30px 0 40px);
+    background-color $ui-global-color-main
+    color: #fff
+    a {
+      color: #fff
+    }
+    .tit {
+      font-size: $rem(28px);
+    }
+    .invest-ing {
+      margin: $rem(0 30px);
+      .cont {
+        margin-top: $rem(25px);
+        font-size: $rem(90px);
+      }
+    }
+    .income {
+      $box-sizing(border-box)
+      padding: $rem(20px 30px 0);
+      border-top 1px solid #f9665c
+      margin-top: $rem(25px);
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      & > div {
+        display: table-cell;
+        vertical-align: middle;
+        .cont {
+          margin-top: $rem(15px);
+          font-size: $rem(42px);
+        }
+      }
+    }
+    .icon {
+      position: absolute
+      right: $rem(30px);
+      top: $rem(90px);
+      font-size: $rem(40px);
+    }
+  }
+  .record-con {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: $rem(30px);
+    padding: $rem(30px);
+    background-color #fff
+    $box-sizing(border-box)
+    & > div {
+      display: table-cell;
+      vertical-align: middle;
+      position: relative
+      & + div {
+        padding-left: $rem(25px);
+        border-left: 1px solid #ccc
+      }
+    }
+    .tit {
+      font-size: $rem(28px);
+    }
+    .cont {
+      a {
+        overflow: hidden
+      }
+      .time {
+        position: absolute
+        margin-top: $rem(10px);
+        font-size: $rem(24px);
+        color: #999
+      }
+      .amount, .no-data {
+        margin-top: $rem(50px);
+        font-size: $rem(32px);
+      }
+      .amount {
+        color: #222
+      }
+      .no-data {
+        color #999
+      }
+    }
+    .icon {
+      position: absolute
+      right: $rem(30px);
+      bottom: 0
+      $triangle(right bottom, #ccc, 1.237499999845312rem, corner);
+    }
+  }
+  .list-con {
+    margin-top: $rem(30px);
+    img.envelope {
+      vertical-align: middle;
+      margin-left: $rem(10px);
+      width: $rem(28px);
+    }
+    .icon-tick-solid {
+      font-size: $rem(30px);
+      color: #6eb92b
+      margin-right: $rem(5px);
+    }
+  }
+}
+
+//更多
+#pageMore {
+  background-color $ui-bg-color-gray
+  .business-card-con {
+    margin-top: $rem(20px);
+    position: relative
+    border: solid #ddd
+    border-width 1px 0
+    height: $rem(150px);
+    $box-sizing(border-box)
+    padding: $rem(20px 0 20px 175px);
+    background-color #fff
+    .main {
+      {$public-center-vertical}
+      .tit {
+        font-size: $rem(34px);
+        color: #333
+      }
+      .cont {
+        margin-top: $rem(15px);
+        font-size: $rem(24px);
+        color: #999
+        .icon {
+          font-size: $rem(25px);
+          color: #78be3a
+        }
+      }
+    }
+    .icon-arrow-right {
+      {$public-center-vertical}
+      right: $rem(30px);
+      color: #bbb
+      font-size: $rem(30px);
+    }
+    .user-portrait {
+      {$public-center-vertical}
+      left: $rem(30px);
+      width: $rem(110px);
+      height: $rem(110px);
+      overflow: hidden
+      img {
+        width: 100%
+      }
+    }
+  }
+  .list-con {
+    .ui-list-more {
+      margin-top: $rem(20px);
+      border: solid #ddd
+      border-width: 1px 0
+    }
+  }
+  .contact-con {
+    margin-top: $rem(50px);
+    width: 100%
+    text-align: center
+    color: #999
+    .tel {
+      position: relative
+      display: inline-block
+      border: 1px solid #d2d2d2
+      font-size: $rem(34px);
+      line-height: $rem(50px);
+      border-radius $rem(30px);
+      padding: $rem(0 25px 0 50px);
+      .icon {
+        {$public-center-vertical}
+        left: $rem(15px);
+        color: $ui-global-color-main;
+        font-size: $rem(30px);
+        margin-right: $rem(10px);
+      }
+    }
+    .time {
+      margin-top: $rem(15px);
+      font-size: $rem(22px);
+    }
+  }
+}
+
+//我的个人中心
+#pageMyCenter {
+  background-color: #f6f6f6
+  .my-info {
+    margin-top: $rem(20px);
+    border: solid #ddd
+    border-width 1px 0
+    background #fff url('../image/seal/certification.png') no-repeat right bottom;
+    background-size $rem(224px auto)
+    .info-box {
+      padding: $rem(20px 30px)
+      width: 100%;
+      $box-sizing(border-box);
+      li {
+        font-size: $rem(28px);
+        color: $ui-font-color-gray-dark;
+        line-height: $rem(55px);
+        span {
+          color: #999;
+          display: inline-block;
+          width: $rem(110px);
+        }
+      }
+    }
+  }
+  .operate {
+    margin-top: $rem(20px);
+    border: solid #ddd;
+    border-width: 1px 0;
+    background-color: #fff;
+    a {
+      height: $rem(100px);
+      display: block;
+      line-height: $rem(100px);
+      margin-left: $rem(30px);
+      font-size: $rem(28px);
+      color: #333;
+      position: relative;
+      border-bottom: solid 1px #ddd;
+      i {
+        {$public-center-vertical}
+        color: #bbb;
+        right: $rem(30px);
+      }
+    }
+    a:last-child {
+      border-width 0
+    }
+  }
+  .quit {
+    margin-top: $rem(20px);
+    border: solid #ddd;
+    border-width: 1px 0;
+    background-color: #fff;
+    text-align: center;
+    height: $rem(97px);
+    line-height: @height;
+    font-size: $rem(32px);
+    color: #333;
+  }
+  .approve {
+    background-image: none !important;
+    position: relative;
+    .go-approve {
+      {$public-center-vertical}
+      right: $rem(30px);
+      font-size: $rem(28px);
+      color: #007aff;
+    }
+  }
+}
+
+//--------------------------------------------------------【登录注册】
+.ui-form {
+  .voice-tips {
+    border-radius $rem(8px);
+    background-color #eee
+    font-size: $rem(24px);
+    line-height: $rem(80px);
+    text-align: center
+    color: $ui-font-color-gray-dark;
+    margin-top: $rem(20px) !important
+    a {
+      display: inline
+      color: $ui-font-color-blue;
+    }
+  }
+}
+
+//--------------------------------------------------------【产品详情页】
+
+//产品详情
+#pageProDetails {
+  .viewport {
+    margin-bottom: $rem(100px);
+  }
+  //链接块右下角的icon图标
+  $link-block-icon =@block{
+    display: block;
+    position: relative
+    &:after {
+      right: 0;
+      bottom: 0;
+      display: inline-block;
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: size = (unit(16px /$default-font-size, rem) / 2) solid $ui-global-color-main;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      margin-top: - size * 2
+      margin-left: - size * 2
+    }
+  }
+
+  .top-card {
+    position: relative
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden
+    .main {
+      margin-top: $rem(40px);
+      line-height: 1;
+      .pro-name {
+        font-size: $rem(36px);
+        color: #333;
+      }
+      .rate {
+        margin-top: $rem(30px);
+        .tit {
+          font-size: $rem(24px);
+          color: $ui-font-color-gray-neutral
+        }
+        .cont {
+          margin-top: $rem(30px);
+          font-size: $rem(100px);
+          color: $ui-global-color-main
+          small {
+            font-size: $rem(40px);
+            span {
+              font-size: $rem(60px)
+            }
+          }
+        }
+      }
+      .rule {
+        margin-top: $rem(20px);
+        font-size: $rem(26px);
+        line-height: 1
+        color: $ui-font-color-gray-neutral;
+        .divide {
+          display: inline-block
+          height: $rem(18px)
+          width: 1px;
+          background-color #ccc
+          margin: $rem(0 25px);
+        }
+        b {
+          font-weight: normal
+          color: $ui-font-color-gray-neutral
+          padding: $rem(0 10px);
+        }
+      }
+    }
+    .other {
+      margin-top: $rem(37px);
+      background-color: #fff;
+      padding-bottom: $rem(5px);
+      .info {
+        width: $rem(580px)
+        margin: 0 auto
+        height: $rem(75px)
+        font-size: $rem(25px);
+        line-height: @height;
+        color: $ui-font-color-gray-neutral;
+        b {
+          font-weight: normal
+          font-size: $rem(24px);
+          color: $ui-font-color-gray-neutral
+          padding: $rem(0 5px);
+        }
+      }
+      .progress {
+        display: none
+      }
+      &.ing {
+        margin-top: $rem(50px);
+        background-color: transparent;
+        .info {
+          font-size: $rem(22px);
+          .font-color-red {
+            color: $ui-global-color-main
+            font-weight: bold
+          }
+          b {
+            font-size: $rem(24px);
+          }
+        }
+        .progress {
+          position: absolute;
+          margin-top: $rem(-80px);
+          width: 100%
+          text-align: center
+          display: block;
+          font-size: 0;
+          em {
+            position: relative
+            display: inline-block
+            width: $rem(580px);
+            height: $rem(3px);
+            background-color: #ececec;
+            i {
+              position: absolute
+              left: 0;
+              top: 50%
+              display: inline-block
+              width: 0;
+              height: $rem(6px);
+              background-color: $ui-global-color-main;
+              border-radius: $rem(10px);
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    .tag {
+      margin $rem(40px) auto 0
+      display block
+      color #77adf3
+      font-size $rem(24px)
+      width 55%
+      text-align center
+      border-radius $rem(40px)
+      border 1px solid #77adf3
+      line-height $rem(48px)
+    }
+    .qbb-progress {
+      margin-top: $rem(35px)
+      height: $rem(80px)
+      .progress {
+        position: relative
+        width: 100%
+        text-align: center
+        display: block;
+        font-size: 0;
+        em {
+          position: relative
+          display: inline-block
+          width: $rem(540px);
+          height: $rem(3px);
+          background-color: #ececec;
+          i {
+            position: absolute
+            left: 0;
+            top: 50%
+            display: inline-block
+            width: 31%;
+            height: $rem(3px);
+            background-color: $ui-global-color-main;
+            border-radius: $rem(10px);
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+        span {
+          position: absolute
+          top: 50%
+          display: inline-block
+          width: $rem(17px)
+          height: $rem(17px)
+          border-radius 100%
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          &:nth-of-type(1) {
+            left: 34%
+            background-color $ui-global-color-main
+          }
+          &:nth-of-type(2) {
+            left: 66%
+            background-color #ececec
+          }
+        }
+      }
+      .info {
+        margin: $rem(17px auto 0)
+        width: $rem(580px);
+        display: table;
+        table-layout: fixed;
+        span {
+          display: table-cell;
+          color: $ui-font-color-gray-neutral
+          font-size: $rem(22px)
+          &:nth-of-type(1) {
+            color: $ui-font-color-gray-neutral
+          }
+          &:nth-of-type(3) {
+            text-indent $rem(15px);
+          }
+        }
+      }
+    }
+  }
+
+  .income-con {
+    line-height: 1;
+    background-color: $ui-bg-color-gray;
+    padding: $rem(15px 0);
+    font-size: $rem(24px);
+    color: $ui-font-color-gray-neutral;
+    & > div {
+      padding: $rem(25px 0);
+      &.link-block-icon {
+        {$link-block-icon}
+      }
+      & + div {
+        position: relative
+        &:before {
+          content: ' '
+          padding-top: $rem(30px)
+          margin-top: $rem(-30px)
+          line-height 0
+          margin-right: $rem(68px)
+          border-top: 1px solid $ui-line-color-form-gray
+          display: block
+        }
+        padding-left: $rem(25px)
+        padding-right: $rem(25px)
+      }
+    }
+    .tit {
+      font-size: $rem(28px);
+      color: $ui-font-color-black;
+    }
+    .explain {
+      li {
+        position: relative
+        padding-left: $rem(68px);
+        height: $rem(30px);
+        line-height: @height
+        & + li {
+          margin-top: $rem(10px);
+        }
+      }
+    }
+    .million {
+      position: relative
+      padding-left: $rem(68px);
+      p + p {
+        margin-top: $rem(15px);
+      }
+      .font-color-red {
+        color: $ui-global-color-main
+      }
+      .iconfont {
+        position: absolute
+        left: $rem(22px)
+        top: $rem(40px)
+      }
+    }
+    .iconfont {
+      position: absolute
+      left: $rem(22px);
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      display: inline-block
+      font-size: $rem(38px)
+      line-height @font-size;
+      color: #fff
+      font-style: normal;
+      text-align: center;
+      border-radius: $rem(3px);
+      &.red {
+        color: $ui-global-color-main;
+      }
+      &.orange {
+        color: #faa86c;
+      }
+      &.green {
+        color: #6eb92b;
+      }
+      &.blue {
+        color: #6693b6;
+      }
+    }
+    .income {
+      margin: $rem(0 30px);
+      .tit {
+        margin-top: $rem(12px);
+      }
+      .cont {
+        margin-top: $rem(23px);
+        .row + .row {
+          margin-top: $rem(25px);
+        }
+      }
+      .import {
+        font-size: $rem(26px);
+        color: #666;
+        b {
+          font-size: $rem(34px);
+          color: #f64349;
+          line-height $rem(26px)
+        }
+        input {
+          $box-sizing(border-box)
+          width: $rem(248px);
+          font-size: $rem(28px);
+          &::-webkit-input-placeholder {
+            color: #c9c6ae
+          }
+          &.amount {
+            margin-right: $rem(15px);
+            width: $rem(300px);
+          }
+          &.days {
+            width: $rem(230px);
+          }
+        }
+      }
+      .info {
+        .tit {
+          margin-top: $rem(11px);
+        }
+        margin-top: $rem(25px);
+        font-size: $rem(24px);
+        line-height: 1.5
+        color: #afafaf
+        b {
+          font-size: $rem(26px);
+          color: #222;
+          padding: $rem(0 5px);
+        }
+      }
+    }
+  }
+
+  .info-con {
+    width: 100%
+    background-color: #fff;
+    padding-bottom: $rem(45px);
+    .box {
+      padding: $rem(25px 0);
+      margin: $rem(0 30px);
+      border-bottom: 1px solid $ui-line-color-form-white;
+      text-align: justify;
+      text-justify: inter-word;
+      a {
+        display: block
+      }
+      &.nolink:after {
+        display: none !important
+      }
+      {$link-block-icon}
+    }
+    .tit {
+      margin-top: $rem(10px)
+      font-size: $rem(28px);
+      color: $ui-font-color-black;
+    }
+    .cont {
+      margin-top: $rem(25px)
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-neutral;
+      line-height: 1.4
+      b {
+        color: $ui-global-color-main;
+        padding: $rem(0 5px);
+      }
+    }
+  }
+  .float-buy-con {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    a {
+      width: 100%
+      border-radius: 0
+      line-height: $rem(100px);
+      font-size: $rem(32px);
+      text-align: center
+    }
+    .icon {
+      margin-right: $rem(5px);
+      font-size: $rem(36px);
+      font-weight: bold
+      &.icon-nav-list {
+        color: #ffb819
+      }
+      &.icon-tick-hollow {
+        color: #fff
+      }
+      &.icon-clock {
+        color: #fff
+      }
+    }
+  }
+}
+
+// 产品详情内页登陆
+#pageProLogin {
+  .goback {
+    font-size: $rem(28px);
+    color: $ui-font-color-blue;
+    text-align: center;
+  }
+}
+
+//提前还款说明
+#pageProRepaymentExplain {
+  background-color $ui-bg-color-gray
+  .tit {
+    position: relative;
+    padding: $rem(40px 30px);
+    font-size: $rem(24px);
+    color: #232323;
+    letter-spacing: $rem(2.2px);
+    p + p {
+      margin-top: $rem(20px);
+    }
+    .arrow {
+      position: absolute;
+      bottom: $rem(-28px);
+      left: $rem(60px);
+      border: $rem(15px) solid;
+      border-color: $ui-bg-color-gray transparent transparent transparent
+    }
+  }
+  .cont {
+    padding: $rem(65px 55px 70px);
+    background-color: #fff;
+    ol {
+      padding-left: $rem(70px);
+      background: url("../image/porRepaymentProgress.png") no-repeat left top;
+      background-size $rem(50px auto);
+    }
+    li + li {
+      margin-top: $rem(125px);
+    }
+    .tits {
+      font-size: $rem(24px);
+      color: #8c8c8c
+    }
+    .conts {
+      margin-top: $rem(10px);
+      font-size: $rem(32px);
+      color: #fa6812;
+      font-weight: bold
+    }
+  }
+  .info {
+    margin: $rem(40px 30px 0);
+    font-size: $rem(24px);
+    color $ui-font-color-gray-neutral
+    .iconfont {
+      margin-right: $rem(10px);
+    }
+  }
+  .defaultPrepayment {
+    .cont {
+      padding: $rem(60px 30px);
+      ol {
+        padding-left: $rem(100px);
+        background: #fff url("../image/repaymentExplain.png") no-repeat left 0
+        background-size $rem(70px auto);
+        min-height: $rem(70px);
+      }
+    }
+  }
+}
+
+//实名有礼
+#pagePorReward {
+  background-color $ui-bg-color-gray
+  .js_hide {
+    display: none !important
+  }
+  header {
+    width: 100%;
+    padding: $rem(30px 0)
+    height: $rem(65px)
+    background: url("../image/invest-award/invest_award_header.jpg") center no-repeat;
+    background-size: cover;
+    z-index: 10
+    ul {
+      height: $rem(65px)
+      margin: 0 auto;
+      color: #fff;
+      text-align: center;
+      font-size: 0
+      line-height: 0
+      li {
+        display: inline-block
+        width: 7.5013rem;
+        font-size: 1.41667rem;
+        line-height: $rem(65px)
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        &.left {
+          border-left: 1px solid #fff;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+        &.right {
+          border-right: 1px solid #fff;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+        &.on {
+          background-color: #fff;
+          color: #ed352d;
+        }
+      }
+    }
+  }
+
+  main {
+    position: absolute
+    top: $rem(135px)
+    right: 0
+    bottom: 0
+    left: 0
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    .wrap {
+      min-height: 95%
+      background-color: #f8f8f8;
+      border-bottom 1px dashed #c1c1c1
+      box-shadow 3px 3px 3px 1px rgba(0, 0, 0, .1)
+      margin: $rem(15px 20px)
+    }
+  }
+
+  .main-wrap {
+    background-color: #fff;
+  }
+
+  .invest-award-con {
+    dl {
+      position: relative;
+      padding: $rem(45px 40px 45px 170px)
+      .tit {
+        margin-bottom: 0.5rem;
+        font-size: $rem(40px)
+        color: #4f4f4f;
+      }
+      .cont {
+        font-size: $rem(28px)
+        line-height: 1.3
+        color: #999;
+      }
+    }
+  }
+
+  .invest-award-con {
+    dl {
+      &.ico-sm {
+        background #f8f8f8 url("../image/invest-award/invest-award-sm.png") no-repeat $rem(25px 35px)
+        background-size $rem(140px auto)
+      }
+      &.ico-sc {
+        background url("../image/invest-award/invest-award-sc.png") no-repeat $rem(5px 35px)
+        background-size $rem(166px auto)
+      }
+      &.ico-xykg {
+        background url("../image/invest-award/invest-award-xykg.png") no-repeat $rem(25px 55px)
+        background-size $rem(120px auto)
+      }
+      &.ico-xyzg {
+        background url("../image/invest-award/invest-award-xyzg.png") no-repeat $rem(25px 55px)
+        background-size $rem(120px auto)
+      }
+      &.ico-ymjr {
+        background url("../image/invest-award/invest-award-ymjr.png") no-repeat $rem(25px 55px)
+        background-size $rem(120px auto)
+      }
+      .ico-either-or {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 6.244rem;
+        height: 5.512rem;
+        background: url("../image/invest-award/ico-either-or.png") no-repeat right top;
+        -webkit-background-size: 100% auto;
+        background-size: 100% auto;
+      }
+    }
+    .tipbox-message {
+      position: relative;
+      padding: 2.33333rem 1.41667rem 2.33333rem 3rem;
+      color: #999;
+      font-size: $rem(20px);
+      line-height: 1.5
+      background-color #f8f8f8
+      .iconimg {
+        position: absolute;
+        margin-top: 0.3rem;
+        margin-left: -1.2rem;
+        display: inline-block;
+        width: 0.83333rem;
+        height: 0.83333rem;
+        background: url("../image/invest-award/invest_award.png") no-repeat;
+        background-size: 21.33333rem 10.66667rem;
+      }
+      .icon-message {
+        background-position: -16rem 0;
+      }
+
+    }
+  }
+
+  .invest-award-tzs-con dl:nth-child(2n+1) {
+    background-color: transparent;
+  }
+  .invest-award-tzs-con dl:nth-child(-n+2) {
+    background-color: #fef8f3;
+  }
+  .invest-award-tzs-con dl:nth-child(1)::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    content: 'or';
+    color: #ddd;
+    font-size: 1.575rem;
+    z-index: 1;
+    padding: 0 .3rem;
+    margin-left: -.5rem;
+    background-color: #fef8f3;
+  }
+  .invest-award-tzs-con dl:nth-child(1)::before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    border-top: 1px dashed #d6d6d6;
+    height: 1px
+  }
+
+  .contrast-table {
+    padding: 2.33333rem 1.41667rem;
+    background-color: #f8f8f8;
+    border-bottom: 1px dashed #d6d6d6;
+    .tit {
+      height: 1.687rem;
+      line-height: 1.687rem;
+      padding-left: 0.562rem;
+      border-left: 5px solid #f64349;
+      font-size: 1.800rem;
+      color: #333
+    }
+    .cont {
+      margin-top: 1.969rem
+    }
+    table {
+      width: 100%;
+      font-size: 0
+      border-collapse: collapse
+    }
+    th, td {
+      border: 1px solid #f64349;
+      font-size: $rem(20px)
+    }
+    th {
+      background-color: #f64349;
+      color: #fff;
+      height: 2.250rem;
+      text-align: center
+      font-weight: normal
+    }
+    td {
+      text-align: center;
+      height: 1.969rem;
+      color: #999;
+      background-color: #fff
+    }
+  }
+
+}
+
+//安全保障
+#pageProEnsure {
+  background-color $ui-bg-color-gray
+  li {
+    position: relative;
+    height: $rem(240px);
+    padding: $rem(20px 50px);
+    background-color: #fff;
+    & + li {
+      margin-top: $rem(15px);
+    }
+    .tit {
+      padding-left: $rem(170px)
+      font-size: $rem(30px);
+      color: #484848;
+      line-height: $rem(144px);
+    }
+    .cont {
+      margin-top: $rem(18px);
+      font-size: $rem(26px);
+      color: #999;
+      line-height: 1.5
+    }
+    .iconimg {
+      position: absolute;
+      left: $rem(35px);
+      top: $rem(20px);
+      display: inline-block;
+      width: $rem(144px);
+      height: $rem(144px);
+      background: no-repeat center center;
+      background-size: contain
+    }
+    .icon1 {
+      background-image: url("../image/security/icon1.png")
+    }
+
+    .icon2 {
+      background-image: url("../image/security/icon2.png")
+    }
+
+    .icon3 {
+      background-image: url("../image/security/icon3.png")
+    }
+
+    .icon4 {
+      background-image: url("../image/security/icon4.png")
+    }
+  }
+}
+
+//投资记录
+#pageProInvestRecord {
+  background-color #fff
+  .tit {
+    background-color: $ui-bg-color-gray
+    line-height: $rem(65px);
+    color: $ui-font-color-gray-dark
+    overflow: hidden
+    padding: $rem(0 30px);
+    font-size: $rem(24px);
+    .column-left {
+      float: left
+    }
+    .column-right {
+      float: right
+    }
+  }
+  .ui-list-double {
+    li + li {
+      border-top: none;
+    }
+    li {
+      border-bottom: 1px solid #e6e6e6;
+    }
+  }
+}
+
+//了解项目
+#pageProMoreInfo {
+  background-color #fff
+  /*项目详情*/
+  .item {
+    .tit {
+      background-color: #edeef0;
+      font-size: 2rem;
+      line-height: 2.667;
+      padding-left: 4%
+    }
+    .subitem {
+      li {
+        margin: 1.5rem 4% 0;
+        padding-bottom: 0.5rem;
+        border-bottom: solid 1px #edeef0
+        &:last-child {
+          border-bottom: none
+        }
+      }
+      .subtit {
+        font-size: 1.875rem;
+        margin: 0;
+        font-weight: normal
+      }
+      .subdes {
+        font-size: 1.75rem;
+        text-indent: 2rem;
+        padding: 1rem 0 0.6rem;
+      }
+    }
+    p {
+      line-height: 1.5
+    }
+    .cont {
+      margin: 1rem 4% 0;
+      padding-bottom: 1.1rem;
+      font-size: 1.75rem;
+      text-indent: 2rem
+    }
+  }
+  /*相关资料*/
+  .info {
+    padding-bottom: 3rem;
+  }
+  .item .info_img {
+    margin: 1.5rem 4% 0;
+  }
+  .item .info_img h4 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: normal
+  }
+  .item .info_img ul {
+    padding: 0;
+    margin-top: $rem(10px);
+    font-size: 0;
+    line-height: 0;
+  }
+  .item .info_img ul li {
+    width: 30%;
+    height: $rem(70px);
+    display: inline-block;
+    margin: 0 2.66% $rem(20px) 0;
+    overflow: hidden;
+    border: solid 1px #000;
+  }
+  .item .info_img ul li img {
+    width: 100%;
+    min-height: 100%;
+  }
+  /*工具*/
+  .no_text_indent {
+    text-indent: 0 !important
+  }
+  .hiddenOverflow {
+    overflow: hidden
+  }
+
+  /*-webkit-animation: spin 2s infinite linear;*/
+
+  /*提前还款项目*/
+  .early_repayment {
+    margin: 1.687rem 4%;
+    border: $rem(4px) solid #ff9898;
+  }
+  .early_repayment .tits {
+    position: relative;
+    padding: 0 4%;
+    border-bottom: 1px solid #a0a0a0;
+    background-color: #edeef0;
+  }
+  .early_repayment .tits span {
+    font-size: 2rem;
+    line-height: 2.667;
+  }
+  .early_repayment .tits a {
+    position: absolute;
+    right: 5%;
+    color: #3a80ff;
+    font-size: 1.8rem;
+    line-height: 3;
+  }
+  .early_repayment table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .early_repayment th,
+  .early_repayment td {
+    height: 6rem;
+    color: #222;
+    font-size: 1.875rem;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .early_repayment th + th,
+  .early_repayment td + td {
+    border-left: 1px solid #a0a0a0;
+  }
+  .early_repayment tr + tr {
+    border-top: 1px dashed #c3c3c3;
+  }
+
+  /*审核表*/
+  .identify_table {
+    width: 100%;
+    margin: $rem(16px 0);
+    color: #000;
+    tr {
+      &:nth-child(even) {
+        background-color: #f4f4f4;
+      }
+    }
+    th {
+      font-size: $rem(28px);
+      background-color: #f8ba58;
+      color: #fff;
+    }
+    th + th, td + td {
+      border-left: 1px solid #fff;
+    }
+    th, td {
+      padding: $rem(10px 0px);
+      text-align: center;
+    }
+    td {
+      font-size: $rem(24px);
+      color: #333;
+    }
+    .subtit .info {
+      font-size: $rem(12px);
+      color: #7c827b;
+    }
+    .icon-tick-solid {
+      font-size: $rem(30px);
+      color: green;
+    }
+    .icon-cross-hollow {
+      font-size: $rem(32px);
+      color: red;
+    }
+  }
+}
+
+#pageProMoreinfoQbb {
+  .box {
+    margin: $rem(0 40px);
+  }
+  .tit {
+    font-size: $rem(28px);
+    color: #666;
+    height: $rem(90px);
+    line-height: $rem(90px);
+    border-bottom: 1px solid #e6e6e6
+  }
+  .cont p + p {
+    margin-top: $rem(10px);
+  }
+  .cont {
+    margin-top: $rem(30px);
+    font-size: $rem(24px);
+    color: #999;
+    line-height: 1.7;
+  }
+  .profit-img-box {
+    padding-bottom: $rem(20px);
+  }
+  .profit-img-box .tit {
+    margin-top: $rem(25px);
+    border-bottom: 0 none
+  }
+  .profit-img-box .cont {
+    text-align: center;
+  }
+}
+
+//--------------------------------------------------------【申购流程】
+//申购确认
+#pageProBuy {
+  background-color #f6f6f6
+  .invest-box {
+    .tit {
+      line-height $rem(80px);
+      padding: $rem(0 30px);
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-dark
+      span {
+        color: $ui-global-color-main;
+      }
+    }
+    .cont {
+      position: relative
+      height: $rem(95px);
+      border: solid #ddd;
+      border-width 1px 0
+      background-color #fff;
+    }
+    .info {
+      margin: $rem(25px 30px 0 0);
+      text-align: right
+      font-size: $rem(28px);
+      color: $ui-font-color-gray-dark
+      span {
+        color: $ui-global-color-main;
+      }
+    }
+  }
+  .info-box {
+    .tit {
+      line-height $rem(80px);
+      padding: $rem(0 30px);
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-dark
+    }
+    .cont {
+      .row {
+        position: relative
+        height: $rem(95px);
+        border: solid #ddd;
+        border-width 1px 0
+        margin-top: -1px
+        background-color #fff;
+      }
+      .envelope-list {
+        padding: $rem(15px 30px 25px 30px);
+        background-color #fff;
+        ul {
+          font-size 0
+          line-height: 0
+        }
+        li {
+          margin-top: $rem(10px);
+          display: inline-block
+          width: 50%
+          font-size: $rem(28px);
+          color: $ui-font-color-gray-neutral
+          input {
+            margin-right: $rem(10px);
+            width: $rem(30px);
+            height: $rem(30px);
+          }
+        }
+      }
+      .import-bankcard {
+        padding: $rem(0 30px);
+        input {
+          {$public-center-vertical}
+          width: $rem(480px);
+          border: 0 none;
+          font-size: $rem(28px);
+        }
+      }
+    }
+  }
+  .operation-box {
+    margin-top: $rem(60px);
+    padding: $rem(0 30px);
+    .ui-btn {
+      width: 100%
+      line-height: $rem(80px);
+      font-size: $rem(32px);
+    }
+    .info {
+      margin-top: $rem(25px);
+      text-align: center
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-light;
+    }
+  }
+  .tits, .conts {
+    {$public-center-vertical}
+    font-size: $rem(28px);
+  }
+  .tits {
+    left: $rem(30px);
+    color: $ui-font-color-black
+  }
+  .conts {
+    right: $rem(30px);
+    input {
+      border: 0 none
+      font-size: $rem(28px);
+      text-align: right
+      width: $rem(250px);
+    }
+    select {
+      height: $rem(70px);
+      width: $rem(250px);
+    }
+    .unit {
+      margin-left: $rem(10px);
+      color: $ui-font-color-black
+    }
+  }
+}
+
+#pageBuyResult {
+  .state-con {
+    overflow: hidden
+    height: $rem(400px)
+    text-align: center
+    .info {
+      font-size: $rem(44px);
+      margin-top: $rem(290px)
+      color: #333
+    }
+    &.faillure {
+      background: url("../image/buy-result/state-failure.png") no-repeat $rem(180px 40px)
+      background-size $rem(272px auto)
+    }
+    &.success {
+      background: url("../image/buy-result/state-success.png") no-repeat $rem(150px 20px)
+      background-size $rem(336px auto)
+    }
+    &.success-qbb {
+      background: url("../image/buy-result/state-success-qbb.png") no-repeat $rem(80px 40px)
+      background-size $rem(382px auto)
+    }
+    &.wait {
+      background: url("../image/buy-result/state-wait.png") no-repeat $rem(150px 40px)
+      background-size $rem(309px auto)
+    }
+  }
+
+  .product-con {
+    margin: $rem(0 30px)
+    padding-bottom: $rem(20px)
+    border-bottom 1px solid #dfdfdf
+    .tit {
+      font-size: $rem(32px)
+      padding-bottom: $rem(20px);
+      color: #333
+      border-bottom 1px solid #dfdfdf
+    }
+    .cont {
+      margin-top: $rem(30px)
+      font-size: $rem(28px)
+      .row {
+        overflow: hidden;
+        & + .row {
+          margin-top: $rem(25px)
+        }
+      }
+      .tits {
+        float: left
+        color: #999
+      }
+      .conts {
+        float: right
+        color: #333
+        .font-color-red {
+          color: #f64349
+        }
+      }
+    }
+    .qbb-progress {
+      width: $rem(400px);
+      margin-top: $rem(25px);
+      padding-left: $rem(72px);
+      background: url("../image/buy-result/qbbProgress.png") no-repeat left top
+      background-size $rem(40px auto)
+      .tits {
+        font-size: $rem(28px);
+        color: #333
+        .font-color-red {
+          color: #f64349
+        }
+      }
+      .conts {
+        margin-top: $rem(10px)
+        font-size: $rem(24px);
+        color: #ababab
+      }
+      ol {
+        overflow: hidden
+      }
+      li {
+        margin-top: $rem(5px);
+        & + li {
+          margin-top: $rem(30px)
+          & + li {
+            margin-top: $rem(30px)
+          }
+        }
+      }
+    }
+  }
+
+  .error-con {
+    padding-bottom: $rem(20px)
+    border-bottom 1px solid #dfdfdf
+    margin: $rem(25px 30px)
+    color: #999
+    .tit {
+      font-size: $rem(28px)
+      .iconfont {
+        margin-right: $rem(10px)
+        font-size: $rem(36px)
+      }
+    }
+    .cont {
+      margin-top: $rem(20px)
+      font-size: $rem(24px)
+      li + li {
+        margin-top: $rem(15px)
+      }
+    }
+  }
+
+  .operation-con {
+    margin-top: $rem(40px)
+    text-align: center
+    a {
+      display: inline-block
+      margin: $rem(0 15px)
+      width: $rem(240px)
+      height: $rem(70px)
+      line-height: @height
+      font-size: $rem(28px)
+      border: 1px solid #999
+      border-radius $rem(10px)
+      color: #666
+    }
+  }
+
+  .contact-con {
+    text-align: center
+    margin-top: $rem(40px)
+    font-size: $rem(24px)
+    color: #999
+    padding-bottom: $rem(30px)
+  }
+
+  /*申购成功红包分享页样式 start*/
+  .notice-con {
+    overflow: hidden
+    margin-bottom: $rem(20px)
+    .notice {
+      margin-top: $rem(30px);
+      text-align: center;
+      font-size: $rem(34px);
+      line-height: $rem(40px);
+      color: #3fb838;
+      i {
+        display: inline-block;
+        width: $rem(40px);
+        height: $rem(40px);
+        background: url("../image/ico-check.png") no-repeat center center;
+        background-size: 100% auto;
+        margin-right: $rem(15px);
+        vertical-align: middle;
+      }
+    }
+    .redPackage {
+      position: relative;
+      height: $rem(350px);
+      margin-top: $rem(10px);
+      overflow: hidden;
+      background: url("../image/buy-result/buySuccess-redPackage.png") no-repeat center top;
+      background-size: $rem(580px 350px)
+      .amount {
+        position: absolute;
+        top: 30%;
+        left: 38%;
+        font-size: $rem(36px);
+        width: $rem(70px);
+        color: #fc0;
+        text-align: center;
+      }
+      .btn {
+        margin-top: $rem(212px);
+        text-align: center;
+        a {
+          display: inline-block;
+          height: $rem(70px);
+          width: $rem(315px);
+        }
+      }
+    }
+  }
+}
+
+//--------------------------------------------------------【我的钱庄】
+//汇款记录 & 投资列表头部 & 红包及奖励头部
+#pageRedPacket,
+#pageGetHistoryTender,
+#pageReturnRecord {
+  .tab-header {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: $rem(99px);
+    border-bottom: 1px solid $ui-line-color-form-gray;
+    background-color: #fff;
+    .ui-tab-btns {
+      {$public-center-completely}
+    }
+  }
+  .tab-item {
+    display: none;
+  }
+  .active {
+    display: block
+  }
+  .cont {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    height: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    padding-top: $rem(100px);
+    a {
+      height 100%;
+    }
+  }
+}
+
+//投资列表
+#pageGetHistoryTender {
+  .icon-clock {
+    color: #fdad46;
+  }
+  .icon-tick-hollow {
+    color: #62cbaf;
+  }
+  .column-right {
+    .tits {
+      color: #999;
+    }
+  }
+
+  .ui-list-double li + li {
+    border-top: none
+  }
+  .ui-list-double li {
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .ui-list-single li + li {
+    border-top: none
+  }
+  .ui-list-single li {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+//汇款记录
+#pageReturnRecord {
+  .ui-list-double li + li {
+    border-top: none
+  }
+  .ui-list-double li {
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .ui-list-single li + li {
+    border-top: none
+  }
+  .ui-list-single li {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+//红包及奖励
+#pageRedPacket {
+  .redPacket-list ul {
+    margin: $rem(30px) $rem(30px) $rem(25px);
+  }
+  .redPacket-list li {
+    position: relative;
+    background-color: #f6f6f6;
+    overflow: hidden;
+  }
+  .redPacket-list li .card-con {
+    float: left;
+    text-align: center;
+    width: $rem(220px);
+    text-indent: $rem(-10px);
+    margin-right: $rem(35px);
+    background: #ccc url("../image/redPacket/bonuses-card2.png") repeat-y right top;
+    color: #fff;
+    line-height: $rem(160px);
+    font-size: $rem(36px);
+  }
+  .redPacket-list li .card-con span {
+    font-size: $rem(70px);
+  }
+  .redPacket-list li .info-con .tit {
+    margin-top: $rem(45px);
+    font-size: $rem(28px);
+    color: #666;
+  }
+  .redPacket-list li .info-con .cont-inner {
+    margin-top: $rem(25px);
+    font-size: $rem(24px);
+    color: #999;
+  }
+  .redPacket-list li .state-con {
+    position: absolute;
+    right: $rem(-30px);
+    bottom: $rem(-45px);
+    width: $rem(226px);
+    height: $rem(198px);
+    background: no-repeat left top;
+    background-size: 100% 100%;
+  }
+  .redPacket-list li .state-con.expired {
+    background-image: url("../image/redPacket/redPacket-state-expired.png");
+  }
+  .redPacket-list li .state-con.end {
+    background-image: url("../image/redPacket/redPacket-state-end.png");
+  }
+  .redPacket-list li.on .card-con {
+    background-color: #fa6053;
+    background-image: url("../image/redPacket/bonuses-card1.png");
+  }
+  .redPacket-list li + li {
+    margin-top: $rem(25px);
+  }
+  .ui-list-double li + li {
+    border-top: none
+  }
+  .ui-list-double li {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+//投资详情
+#pageMyTenderRecordDetail {
+  background-color: #f2f2f2;
+  .viewport {
+    margin-bottom: $rem(80px);
+  }
+  .finished {
+    .header-bar {
+      background-color: #62cbaf;
+    }
+    .status {
+      color: #62cbaf;
+    }
+  }
+  .unfinish {
+    .header-bar {
+      background-color: #fdad46;
+    }
+    .status {
+      color: #ffa128;
+    }
+  }
+  .header-bar {
+    position: relative;
+    height: $rem(80px);
+    color: $ui-font-color-white;
+    a {
+      color: $ui-font-color-white;
+    }
+    .left-col, .right-col {
+      {$public-center-vertical}
+      font-size: $rem(30px);
+    }
+    .left-col {
+      left: $rem(30px);
+      text-align: left;
+    }
+    .right-col {
+      right: $rem(30px);
+      text-align: right;
+    }
+  }
+  .cont {
+    padding-bottom: 17px;
+    background: #fff url("../image/historyTenderBg.png") repeat-x 0 bottom;
+  }
+  .footer-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $rem(80px);
+    text-align: center;
+    line-height: $rem(80px);
+    font-size: $rem(34px);
+    background-color: #fff;
+  }
+  .column-left {
+    color: $ui-font-color-gray-neutral;
+  }
+  .column-right {
+    color: $ui-font-color-gray-dark;
+  }
+}
+
+//账户余额
+#pageAccountBalance {
+  .balance-wrap {
+    background-color: $ui-global-color-main;
+    color: #fff;
+    padding: $rem(55px) $rem(32px) $rem(34px);
+    .tit {
+      font-size: $rem(28px);
+    }
+    .icon {
+      font-size: $rem(36px);
+    }
+    .cont {
+      margin-top: $rem(30px);
+      font-size: $rem(90px);
+    }
+  }
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .footer-btn {
+      display: block;
+      line-height: $rem(100px);
+      text-align: center;
+      background-color: $ui-global-color-main;
+      color: #fff;
+      font-size: $rem(34px);
+    }
+    .disabled {
+      background-color: #fbcbc6;
+    }
+  }
+  .main {
+    padding: $rem(40px) $rem(35px)
+  }
+  .balance-info .tit {
+    font-size: $rem(26px);
+    color: #848484;
+    font-weight: bold
+  }
+  .balance-info .tit .icon {
+    font-size: $rem(36px);
+    margin-right: $rem(5px);
+  }
+  .balance-info .cont {
+    margin-top: $rem(15px);
+    font-size: $rem(24px);
+    color: #a9a9a9;
+    line-height: $rem(40px)
+  }
+  .balance-info .cont .font-color-red {
+    padding: 0 $rem(8px);
+    font-size: $rem(30px);
+    color: #f64349
+  }
+  .balance-info .box + .box {
+    margin-top: $rem(30px);
+  }
+  .time-info {
+    margin-top: $rem(40px);
+    padding-top: $rem(35px);
+    border-top: 1px solid #e7e7e7;
+    font-size: $rem(24px);
+    color: #aaa;
+    line-height: $rem(40px)
+  }
+}
+
+//在投资金
+#pageTendering {
+  .balance-wrap {
+    background-color: $ui-global-color-main;
+    color: #fff;
+    padding: $rem(55px) $rem(32px) $rem(34px);
+    .tit {
+      font-size: $rem(28px);
+    }
+    .icon {
+      font-size: $rem(36px);
+    }
+    .cont {
+      margin-top: $rem(30px);
+      font-size: $rem(90px);
+    }
+  }
+  .tenders + .tenders {
+    border-top: 1px solid $ui-font-color-gray-light;
+  }
+  .tenders {
+    margin: 0 $rem(30px);
+    .tenders-header {
+      font-size: $rem(28px);
+      color: $ui-font-color-black;
+      border-left: 3px solid $ui-font-color-black;
+      text-indent: $rem(14px);
+      margin: $rem(40px) 0;
+    }
+    .tenders-item {
+      position: relative;
+      height: $rem(40px);
+      margin-bottom: $rem(26px);
+      .tit {
+        position: absolute;
+        left: 0;
+        text-align: left;
+        font-size: $rem(28px);
+        color: $ui-font-color-gray-neutral;
+        {$public-center-vertical}
+      }
+      .cont {
+        position: absolute;
+        right: 0;
+        text-align: right;
+        font-size: $rem(32px);
+        color: $ui-font-color-black;
+        {$public-center-vertical}
+      }
+    }
+    .btn {
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: $rem(18px) 0 $rem(30px);
+      border: 1px solid $ui-font-color-gray-neutral;
+      line-height: $rem(78px);
+      font-size: $rem(32px);
+      text-align: center;
+      color: $ui-font-color-gray-dark;
+      border-radius: $rem(8px);
+      -webkit-border-radius: $rem(8px);
+    }
+    .btn.red {
+      color: $ui-font-color-red;
+      border-color: $ui-font-color-red;
+    }
+  }
+}
+
+//钱宝宝转出
+#pageBmOut {
+  .ui-form {
+    .forget {
+      color: $ui-font-color-blue;
+    }
+    .tit {
+      color: $ui-font-color-black;
+      .red {
+        color: $ui-font-color-red;
+      }
+    }
+  }
+}
+
+//钱宝宝转出结果
+#pageBmOutResult {
+  .state-con {
+    overflow: hidden
+    height: $rem(400px)
+    text-align: center
+    .info {
+      font-size: $rem(44px);
+      margin-top: $rem(290px)
+      color: #333;
+      font-weight: bold;
+    }
+    &.faillure {
+      background: url("../image/buy-result/state-failure.png") no-repeat $rem(180px 40px)
+      background-size $rem(272px auto)
+    }
+    &.success {
+      background: url("../image/buy-result/state-success.png") no-repeat $rem(150px 20px)
+      background-size $rem(336px auto)
+    }
+    &.success-qbb {
+      background: url("../image/buy-result/state-success-qbb.png") no-repeat $rem(80px 40px)
+      background-size $rem(382px auto)
+    }
+    &.wait {
+      background: url("../image/buy-result/state-wait.png") no-repeat $rem(150px 40px)
+      background-size $rem(309px auto)
+    }
+  }
+
+  .product-con {
+    margin: $rem(0 30px)
+    padding-bottom: $rem(20px)
+    border-bottom 1px solid #dfdfdf
+    .tit {
+      font-size: $rem(32px)
+      padding-bottom: $rem(20px);
+      color: #333
+      border-bottom 1px solid #dfdfdf
+    }
+    .cont {
+      margin-top: $rem(30px)
+      font-size: $rem(28px)
+      .row {
+        overflow: hidden;
+        & + .row {
+          margin-top: $rem(25px)
+        }
+      }
+    }
+  }
+  .error-con {
+    padding-bottom: $rem(20px)
+    margin: $rem(25px 30px)
+    color: #999
+    .tit {
+      font-size: $rem(28px)
+      color: #333
+    }
+    .cont {
+      margin-top: $rem(20px)
+      font-size: $rem(24px)
+    }
+  }
+
+  .operation-con {
+    margin-top: $rem(40px)
+    text-align: center
+    .btn {
+      display: block;
+      height: $rem(70px)
+      margin: $rem(0 30px);
+      line-height: @height
+      font-size: $rem(28px)
+      border-radius $rem(10px)
+      color: #fff
+    }
+  }
+
+  .footer-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $rem(99px);
+    border-top: 1px solid #ddd;
+    background-color: $ui-bg-color-gray;
+    line-height: @height;
+    text-align: center;
+    font-size: $rem(22px);
+    color: $ui-font-color-gray-neutral;
+    a {
+      display: inline;
+    }
+  }
+}
+
+//添加银行卡 &我的银行卡
+#pageAddBankCard,
+#pageMyBankCard {
+  background-color: $ui-bg-color-gray;
+  .viewport {
+    padding: $rem(50px 30px);
+  }
+  .cont {
+    position: relative;
+    padding: $rem(35px 34px);
+    height: $rem(180px);
+    border: $rem(3px) solid #e5e5e5;
+    border-radius: $rem(8px);
+    background-color: #fff;
+    -webkit-tap-highlight-color: transparent;
+    .add-card-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .tits {
+      font-size: $rem(36px);
+      line-height: $rem(50px);
+      overflow: hidden;
+      color: #414141;
+    }
+    .conts {
+      margin-top: $rem(35px);
+    }
+    .card-id {
+      height: $rem(40px);
+      overflow: hidden;
+      font-size: $rem(60px);
+      line-height: $rem(60px);
+      color: #9c9c9c;
+      span {
+        position: absolute;
+        font-size: $rem(40px);
+        line-height: $rem(40px);
+      }
+    }
+    .card-name {
+      margin-top: $rem(30px);
+      font-size: $rem(28px);
+      color: #939393;
+    }
+  }
+  .add-card {
+    font-size: $rem(28px);
+    color: $ui-font-color-blue;
+    {$public-center-completely}
+  }
+  .tips-cont {
+    margin-top: $rem(78px);
+    .tits {
+      font-size: $rem(24px);
+      color: #575757;
+    }
+    .conts {
+      margin-top: $rem(22px);
+      font-size: $rem(22px);
+      line-height: 1.36;
+      color: #9d9d9d;
+      p + p {
+        margin-top: $rem(15px);
+      }
+    }
+  }
+}
+
+//我的银行卡
+#pageMyBankCard {
+  .bank-icon {
+    display: inline-block;
+    height: $rem(52px);
+    width: $rem(52px);
+    background: no-repeat center center;
+    background-size: 105%;
+    vertical-align: middle;
+  }
+  .qui_bank_abc {
+    background-image: url("../image/bank-icon/bank-ico-abc.png");
+  }
+  .qui_bank_icbc {
+    background-image: url("../image/bank-icon/bank-ico-icbc.png");
+  }
+  .qui_bank_cmb {
+    background-image: url("../image/bank-icon/bank-ico-cmb.png");
+  }
+  .qui_bank_boc {
+    background-image: url("../image/bank-icon/bank-ico-boc.png");
+  }
+  .qui_bank_ccb {
+    background-image: url("../image/bank-icon/bank-ico-ccb.png");
+  }
+  .qui_bank_ceb {
+    background-image: url("../image/bank-icon/bank-ico-ceb.png");
+  }
+  .qui_bank_hxb {
+    background-image: url("../image/bank-icon/bank-ico-hxb.png");
+  }
+  .qui_bank_ecitic {
+    background-image: url("../image/bank-icon/bank-ico-ecitic.png");
+  }
+  .qui_bank_cib {
+    background-image: url("../image/bank-icon/bank-ico-cib.png");
+  }
+  .qui_bank_pingan {
+    background-image: url("../image/bank-icon/bank-ico-pingan.png");
+  }
+  .qui_bank_spdb {
+    background-image: url("../image/bank-icon/bank-ico-spdb.png");
+  }
+  .qui_bank_psbc {
+    background-image: url("../image/bank-icon/bank-ico-psbc.png");
+  }
+  .qui_bank_cgbc {
+    background-image: url("../image/bank-icon/bank-ico-cgbc.png");
+  }
+  .qui_bank_cmbc {
+    background-image: url("../image/bank-icon/bank-ico-cmbc.png");
+  }
+}
+
+// 填写银行卡号
+#pageAddBankCardForm {
+  .tips-cont {
+    margin: $rem(40px 30px 0);
+    margin-top: $rem(78px);
+    .tits {
+      font-size: $rem(24px);
+      color: #575757;
+    }
+    .conts {
+      margin-top: $rem(22px);
+      font-size: $rem(22px);
+      line-height: 1.36;
+      color: #9d9d9d;
+      p + p {
+        margin-top: $rem(15px);
+      }
+    }
+  }
+  .tit {
+    .red {
+      color: $ui-font-color-red;
+    }
+  }
+}
+
+//下载页面
+#pageDownload {
+  background-color: #ef6d66;
+  text-align: center;
+  .viewport {
+    overflow: hidden;
+  }
+  .logo {
+    height: 20%;
+  }
+  .download-btn {
+    display: block;
+    height: 10%
+    span {
+      display: none;
+    }
+  }
+  .img-phone {
+    position: absolute;
+    width: 100%;
+    height: 62%;
+    bottom: 0;
+  }
+  img {
+    display: inline-block;
+    max-height: 100%;
+    width: auto;
+  }
+}
+
+//还款计划
+#pageMyTenderRepayment {
+  background-color: $ui-bg-color-gray;
+}

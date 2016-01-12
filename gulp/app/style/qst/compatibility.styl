@@ -1,0 +1,380 @@
+//
+// Compatibility
+// -----------------------------------------------------------------------------
+//
+// ### Usage:
+// 解决常见兼容性问题，如浏览器私有前缀等。
+
+@import "variables"
+
+$inline-block() {
+  display: inline-block;
+  if $support-old-ie {
+    \*display: inline;
+    \*zoom: 1;
+  }
+}
+
+//
+// Known issue:
+// 不支持IE 6/7
+
+$box-sizing() {
+  -webkit-box-sizing: arguments;
+  -moz-box-sizing: arguments;
+  box-sizing: arguments;
+}
+
+// Known issue:
+// 不支持IE 9及以下
+
+$placeholder(color = $default-input-placeholder-color) {
+  &:-moz-placeholder {
+    color: color;
+  }
+  &::-moz-placeholder {
+    color: color;
+  }
+  &::-webkit-input-placeholder {
+    color: color;
+  }
+  &:-ms-input-placeholder {
+    color: color;
+  }
+}
+
+// Known issue:
+// 不支持Opera 14及以前版本，Opera 15起支持-webkit-user-select。不支持IE 9及以下
+// user-select 目前没有出现在任何 W3C 官方的规范中，浏览器厂商的实现可能会有细节上的差异，目前不建议使用除 text 和 none 以外的任何值。
+
+$user-select(type) {
+  -webkit-user-select: type;
+  -moz-user-select: type;
+  -ms-user-select: type;
+  user-select: type;
+}
+
+$opacity(opacity = 100) {
+  opacity: (opacity / 100);
+  filter: unquote('alpha(opacity=' +opacity + ')');
+}
+
+// Border Radius
+// all
+$border-radius() {
+  if arguments[0] {
+    -webkit-border-radius: arguments;
+    -moz-border-radius: arguments;
+    border-radius: arguments;
+  } else {
+    -webkit-border-radius: $default-border-radius;
+    -moz-border-radius: $default-border-radius;
+    border-radius: $default-border-radius;
+  }
+}
+
+// top left
+$border-top-left-radius() {
+  if arguments[0] {
+    -webkit-border-top-left-radius: arguments;
+    -moz-border-top-left-radius: arguments;
+    border-top-left-radius: arguments;
+  } else {
+    -webkit-border-top-left-radius: $default-border-radius;
+    -moz-border-top-left-radius: $default-border-radius;
+    border-top-left-radius: $default-border-radius;
+  }
+}
+
+// top right
+$border-top-right-radius() {
+  if arguments[0] {
+    -webkit-border-top-right-radius: arguments;
+    -moz-border-top-right-radius: arguments;
+    border-top-right-radius: arguments;
+  } else {
+    -webkit-border-top-right-radius: $default-border-radius;
+    -moz-border-top-right-radius: $default-border-radius;
+    border-top-right-radius: $default-border-radius;
+  }
+}
+
+// bottom right
+$border-bottom-right-radius() {
+  if arguments[0] {
+    -webkit-border-bottom-right-radius: arguments;
+    -moz-border-bottom-right-radius: arguments;
+    border-bottom-right-radius: arguments;
+  } else {
+    -webkit-border-bottom-right-radius: $default-border-radius;
+    -moz-border-bottom-right-radius: $default-border-radius;
+    border-bottom-right-radius: $default-border-radius;
+  }
+}
+
+// bottom left
+$border-bottom-left-radius() {
+  if arguments[0] {
+    -webkit-border-bottom-left-radius: arguments;
+    -moz-border-bottom-left-radius: arguments;
+    border-bottom-left-radius: arguments;
+  } else {
+    -webkit-border-bottom-left-radius: $default-border-radius;
+    -moz-border-bottom-left-radius: $default-border-radius;
+    border-bottom-left-radius: $default-border-radius;
+  }
+}
+
+// top
+$border-top-radius() {
+  if arguments[0] {
+    -webkit-border-top-radius: arguments;
+    -moz-border-top-radius: arguments;
+    border-top-radius: arguments;
+  } else {
+    -webkit-border-top-radius: $default-border-radius;
+    -moz-border-top-radius: $default-border-radius;
+    border-top-radius: $default-border-radius;
+  }
+}
+
+// right
+$border-right-radius() {
+  if arguments[0] {
+    -webkit-border-right-radius: arguments;
+    -moz-border-right-radius: arguments;
+    border-right-radius: arguments;
+  } else {
+    -webkit-border-right-radius: $default-border-radius;
+    -moz-border-right-radius: $default-border-radius;
+    border-right-radius: $default-border-radius;
+  }
+}
+
+// bottom
+$border-bottom-radius() {
+  if arguments[0] {
+    -webkit-border-bottom-radius: arguments;
+    -moz-border-bottom-radius: arguments;
+    border-bottom-radius: arguments;
+  } else {
+    -webkit-border-bottom-radius: $default-border-radius;
+    -moz-border-bottom-radius: $default-border-radius;
+    border-bottom-radius: $default-border-radius;
+  }
+}
+
+// left
+$border-left-radius() {
+  if arguments[0] {
+    -webkit-border-left-radius: arguments;
+    -moz-border-left-radius: arguments;
+    border-left-radius: arguments;
+  } else {
+    -webkit-border-left-radius: $default-border-radius;
+    -moz-border-left-radius: $default-border-radius;
+    border-left-radius: $default-border-radius;
+  }
+}
+
+// Drop shadows
+$box-shadow() {
+  if arguments {
+    -webkit-box-shadow: arguments;
+    -moz-box-shadow: arguments;
+    box-shadow: arguments;
+  } else {
+    -webkit-box-shadow: $default-box-shadow;
+    -moz-box-shadow: $default-box-shadow;
+    box-shadow: $default-box-shadow;
+  }
+}
+
+// Transitions
+// Reference:
+// * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+
+//todo:对transition、animation的浏览器前缀封装
+
+//浏览器前缀万金油
+$browser-prefix(prefix, val) {
+  -webkit-{prefix}: val;
+  -moz-{prefix}: val;
+  -ms-{prefix}: val;
+  -o-{prefix}: val;
+  {prefix}: val;
+}
+
+//
+// Transformations
+//
+// Reference:
+// * https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+// * http://dev.w3.org/csswg/css-transforms/#transform
+$transform() {
+  -webkit-transform: arguments;
+  -moz-transform: arguments;
+  -ms-transform: arguments;
+  -o-transform: arguments;
+  transform: arguments;
+}
+
+// Known issue:
+// IE不支持，Opera 15起以`-webkit`前缀方式支持
+
+$transform-style(style) {
+  -webkit-transform-style: style;
+  -moz-transform-style: style;
+  transform-style: style;
+}
+
+//
+// Known issue:
+// Opera 15起以`-webkit`前缀方式支持三值语法，之前以`-o`前缀方式支持
+
+$transform-origin() {
+  -webkit-transform-origin: arguments;
+  -moz-transform-origin: arguments;
+  -ms-transform-origin: arguments;
+  -o-transform-origin: arguments;
+  transform-origin: arguments;
+}
+
+//
+// Known issue:
+// IE9、Opera 14及以下不支持，Opera 15起以`-webkit`前缀方式支持
+
+$backface-visibility(visibility) {
+  -webkit-backface-visibility: visibility;
+  -moz-backface-visibility: visibility;
+  backface-visibility: visibility;
+}
+
+//
+// Known issue:
+// IE9、Opera 14及以下不支持，Opera 15起以`-webkit`前缀方式支持
+
+$perspective(d) {
+  -webkit-perspective: d;
+  -moz-perspective: d;
+  perspective: d;
+}
+
+// todo:单个变换函数的快捷方法
+// todo:CSS3 Background
+// todo:Background sizing
+// todo:Gradients
+
+//
+// Extended display property values
+
+$display(boxtype) {
+  if boxtype is flex {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }else if boxtype is inline-flex {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }else if boxtype is box {
+    display: -webkit-box;
+    display: -moz-box;
+  }else if boxtype is inline-box {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+  }else{
+    display: boxtype;
+  }
+}
+
+//
+// Flexible Box Layout
+//
+// IE 10 support: http://msdn.microsoft.com/en-us/library/ie/hh673531%28v=vs.85%29.aspx
+// IE 11 update: http://msdn.microsoft.com/en-us/library/ie/dn265027%28v=vs.85%29.aspx
+
+$flex-direction(direction) {
+  -webkit-flex-direction: direction;
+  -moz-flex-direction: direction;
+  -ms-flex-direction: direction;
+  flex-direction: direction;
+}
+
+//todo:flex-wrap(@wrap)和flex-flow(@flow)有正则，待写
+
+$order(order) {
+  -webkit-flex-order: order;
+  -moz-flex-order: order;
+  -ms-flex-order: order;
+  -webkit-order: order;
+  -moz-order: order;
+  -ms-order: order;
+  order: order;
+}
+
+$flex(flex) {
+    -webkit-flex: flex;
+       -moz-flex: flex;
+        -ms-flex: flex;
+            flex: flex;
+}
+$flex-grow(flex) {
+    -webkit-flex-grow: flex;
+       -moz-flex-grow: flex;
+            flex-grow: flex;
+}
+
+$flex-shrink(flex) {
+  -webkit-flex-shrink: flex;
+  -moz-flex-shrink: flex;
+  flex-shrink: flex;
+}
+
+$flex-basis(size) {
+  -webkit-flex-basis: size;
+  -moz-flex-basis: size;
+  flex-basis: size;
+}
+//todo:justify-content(@align)\align-items(@align)\align-self(@align)\align-content(@align)有正则，待写
+
+//
+// Old Flexible Box Layout（预删除）
+//$box-orient(orient) {
+//  -webkit-box-orient: orient;
+//  -moz-box-orient: orient;
+//}
+//
+//$box-direction(direction) {
+//  -webkit-box-direction: direction;
+//  -moz-box-direction: direction;
+//}
+//
+//$box-ordinal-group(group) {
+//  -webkit-box-ordinal-group: group;
+//  -moz-box-ordinal-group: group;
+//}
+//
+//
+//$box-flex-group(group) {
+//  -webkit-box-flex-group: group;
+//  -moz-box-flex-group: group;
+//}
+//
+//
+//$box-flex(flex) {
+//  -webkit-box-flex: flex;
+//  -moz-box-flex: flex;
+//}
+//
+//$box-align(align) {
+//  -webkit-box-align: align;
+//  -moz-box-align: align;
+//}
+//
+//$box-pack(align) {
+//  -webkit-box-pack: align;
+//  -moz-box-pack: align;
+//}
+
+// box-lines are omitted because no browser did implement it

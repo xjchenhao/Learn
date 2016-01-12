@@ -1,0 +1,147 @@
+//
+// Shapes
+// -----------------------------------------------------------------------------
+//
+// ### Usage:
+// 提供常见形状的生成。
+
+@import "variables";
+@import "util";
+@import "compatibility";
+
+$triangle(direction, color, size, origin = corner) {
+  position: absolute;
+  width: 0;
+  height: 0;
+  if $support-old-ie {
+    _font-size: 0;
+    _line-height: 0;
+  }
+  if direction is (top) {
+    border: size = (size/ 2) solid transparent;
+    border-bottom-color: color;
+    if $support-old-ie {
+      _border-style: dashed;
+      _border-bottom-style: solid;
+    }
+  }
+  if direction is (right) {
+    border: size = (size/ 2) solid transparent;
+    border-left-color: color;
+    if $support-old-ie {
+      _border-style: dashed;
+      _border-left-style: solid;
+    }
+  }
+  if direction is (bottom) {
+    border: size = (size/ 2) solid transparent;
+    border-top-color: color;
+    if $support-old-ie {
+      _border-style: dashed;
+      _border-top-style: solid;
+    }
+  }
+  if direction is (left) {
+    border: size = (size/ 2) solid transparent;
+    border-right-color: color;
+    if $support-old-ie {
+      _border-style: dashed;
+      _border-right-style: solid;
+    }
+  }
+  if direction is (right top) {
+    border: size = (size/ 2) solid color;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    if $support-old-ie {
+      _border-style: solid;
+      _border-bottom-style: dashed;
+      _border-left-style: dashed;
+    }
+  }
+  if direction is (right bottom) {
+    border: size = (size/ 2) solid color;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    if $support-old-ie {
+      _border-style: solid;
+      _border-top-style: dashed;
+      _border-left-style: dashed;
+    }
+  }
+  if direction is (left bottom) {
+    border: size = (size/ 2) solid color;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    if $support-old-ie {
+      _border-style: solid;
+      _border-top-style: dashed;
+      _border-right-style: dashed;
+    }
+  }
+  if direction is (left top) {
+    border: size = (size/ 2) solid color;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    if $support-old-ie {
+      _border-style: solid;
+      _border-bottom-style: dashed;
+      _border-right-style: dashed;
+    }
+  }
+  if direction is (top) or direction is (right) or direction is (bottom) or direction is (left) {
+    if origin is 'corner' {
+      margin-top: - size;
+      margin-left: - size;
+    } else if origin is 'side' {
+      if direction is top {
+        margin-top: - size * 2
+        margin-left: - size
+      }
+      if direction is right {
+        margin-top: - size
+      }
+      if direction is bottom {
+        margin-left: - size
+      }
+      if direction is left {
+        margin-top: - size
+        margin-left: - size * 2;
+      }
+    }
+  }
+  if direction is (right top) or direction is (right bottom) or direction is (left bottom) or direction is (left top) {
+    if origin is 'corner' {
+      if direction is (right top) {
+        margin-left: - size * 2
+      }
+      if direction is (right bottom) {
+        margin-top: - size * 2
+        margin-left: - size * 2
+      }
+      if direction is (left bottom) {
+        margin-top: - size * 2
+      }
+      if direction is (left top) {
+      }
+    } else if origin is 'side' {
+      margin-left: - size;
+      margin-top: - size;
+    }
+  }
+}
+
+$circle() {
+  if unit(arguments[0]) is '%'{
+    width: arguments[0];
+    padding-top: arguments[0];
+    $border-radius(50%);
+  }
+  if unit(arguments[0]) is 'px'{
+    $size(arguments[0]);
+    $border-radius(ceil(arguments[0] / 2));
+  }
+  if arguments[0] is 0{
+    $size(0);
+  }
+}

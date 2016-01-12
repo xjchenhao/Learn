@@ -1,0 +1,695 @@
+@import 'qst/all'
+@import 'config'
+
+//基准字号
+$default-font-size = 17.77777778px;
+
+//不需要兼容低版本ie
+$support-old-ie = false;
+
+//单位换算不需要保留原先的单位
+$original-size = false;
+
+//--------------------------------------------------------【文字】
+
+//纯白：按钮等反白文字
+.font-color-white {
+  color: $ui-font-color-white !important
+}
+
+//浅灰：输入框中默认显示描述或帮助性文字
+.font-color-gray-light {
+  color: $ui-font-color-gray-light !important
+}
+
+//中灰色：辅助、说明文字
+.font-color-gray-neutral {
+  color: $ui-font-color-gray-neutral !important
+}
+
+//深灰：次级标题、部分正文文字、导航栏tab按钮文字
+.font-color-gray-dark {
+  color: $ui-font-color-gray-dark !important
+}
+
+//深黑：顶部导航名称，标题、金额等主要文字
+.font-color-black {
+  color: $ui-font-color-black !important
+}
+
+//红色：重要醒目文字
+.font-color-red {
+  color: $ui-font-color-red !important
+}
+
+//蓝色：链接文字
+.font-color-blue {
+  color: $ui-font-color-blue !important
+}
+
+//--------------------------------------------------------【按钮】
+.ui-btn {
+  display: inline-block
+  border-radius $rem(8px);
+  text-align: center
+  &.red {
+    background-color: $ui-global-color-main
+    border-color: @background-color;
+    color #fff
+    &:active {
+      background-color: #aa3a2f;
+      border-color: @background-color;
+      color #b1b1b1
+    }
+    &.disabled{
+      background-color: #fcc6c8
+      border-color: @background-color;
+      color #fff8f8
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+  &.gray {
+    background-color #bbb
+    border-color: @background-color
+    color: #fff;
+  }
+}
+
+//--------------------------------------------------------【tab切换按钮 -- 王英俊 】
+.ui-tab-btns {
+  width: 100%;
+  text-align : center;
+  .ui-tab-btn {
+    display: inline-block;
+    width: $rem(154px);
+    line-height: $rem(60px);
+    font-size: $rem(28px);
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid $ui-global-color-main;
+    margin-left: -1px;
+    &.left {
+      $border-top-left-radius($rem(8px));
+      $border-bottom-left-radius($rem(8px));
+    }
+    &.right {
+      $border-top-right-radius($rem(8px));
+      $border-bottom-right-radius($rem(8px));
+    }
+    &.on {
+      background-color: $ui-global-color-main;
+      color: $ui-font-color-white;
+    }
+  }
+}
+
+//--------------------------------------------------------【表单元素】
+.ui-input-text {
+  padding: $rem(20px 24px)
+  border: 1px solid $ui-font-color-gray-light
+  border-radius: $rem(8px)
+  $placeholder($ui-font-color-gray-light)
+}
+
+.ui-form {
+  background-color $ui-bg-color-gray
+  .main {
+    margin: $rem(40px 30px 0);
+    .tit {
+      font-size: $rem(28px);
+      color: $ui-font-color-gray-dark;
+    }
+    .cont {
+      .row + .row {
+        margin-top: $rem(30px)
+      }
+      & + .tit {
+        margin-top: $rem(50px);
+      }
+      margin-top: $rem(40px);
+      input[type="text"], input[type="password"],input[type="tel"] {
+        background-color #fff;
+        $box-sizing(border-box)
+        width: 100%
+        font-size: $rem(28px);
+      }
+      .phone {
+        position: relative
+        input {
+          padding-left: $rem(70px);
+        }
+        .icon {
+          {$public-center-vertical}
+          left: $rem(20px);
+          font-size: $rem(40px);
+          color: #bbb
+        }
+      }
+      .verify {
+        $clearfix();
+        input {
+          float: left
+          width: $rem(270px);
+        }
+        .btn {
+          float: right
+          width: $rem(270px);
+          text-align: center
+          font-size: $rem(28px);
+          line-height: $rem(75px);
+          border: 0 none;
+          padding: 0
+          &.disabled{
+            @extend .ui-btn.red.disabled
+          }
+        }
+      }
+      .protocol {
+        font-size: $rem(28px);
+        color: $ui-font-color-gray-neutral
+        a {
+          display: inline
+        }
+      }
+    }
+      .find {
+        text-align: right
+        font-size: $rem(28px);
+      }
+    .operate {
+      margin-top: $rem(60px);
+      .btn {
+        width: 100%
+        color: #fff
+        line-height: $rem(80px);
+        text-align: center
+        font-size: $rem(34px);
+      }
+    }
+    .info {
+      margin-top: $rem(30px);
+      line-height: 1.3
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-neutral
+    }
+  }
+}
+
+//--------------------------------------------------------【弹出框】
+
+//公共样式变量
+$pop-main = @block{
+  position: absolute
+  left: 50%
+  top: 50%
+  border-radius $rem(10px)
+  overflow: hidden
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+//警告与确认提示框
+.ui-pop-frame {
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color rgba(0, 0, 0, .5)
+  z-index: 99999
+  .ui-pop-main {
+    {$pop-main}
+    width: $rem(530px)
+    background-color #fff;
+  }
+  .ui-pop-tit {
+    margin-top: $rem(45px)
+    font-size $rem(32px)
+    font-weight: bold
+    color: $ui-font-color-black
+    text-align: center
+    & + .ui-pop-cont {
+      font-size $rem(28px)
+      min-height $rem(100px)
+      padding: $rem(30px 35px)
+      text-align left
+    }
+  }
+  .ui-pop-cont {
+    padding: $rem(70px 35px)
+    font-size $rem(32px)
+    line-height: 1.5
+    text-align: center
+  }
+  .ui-pop-operation {
+    border-top: 1px solid $ui-font-color-gray-light
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+  }
+  .ui-pop-operation a {
+    display: table-cell;
+    text-align: center;
+    line-height $rem(90px)
+    font-size $rem(32px)
+    color: $ui-font-color-blue
+  }
+  .ui-pop-operation a:nth-child(n+2) {
+    border-left: 1px solid $ui-font-color-gray-light;
+  }
+  .ui-pop-operation a:nth-last-child(n+2) {
+    color: $ui-font-color-gray-neutral
+  }
+}
+
+//等待提示框
+.ui-pop-wait {
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color rgba(255, 255, 255, .3)
+  .ui-pop-main {
+    {$pop-main}
+    padding: $rem(30px);
+    font-size: $rem(28px);
+    color: #fff
+    background-color rgba(0, 0, 0, .7);
+  }
+}
+
+
+  // 弹出输入密码
+.ui-pop-cont-deal-password{
+  position: relative
+  input{
+    $box-sizing(border-box)
+    width: 100%
+  }
+  a{
+    {$public-center-vertical}
+    right: $rem(30px);
+  }
+}
+  // 弹出输入验证码
+.ui-pop-cont-confirm-pay{
+  .tits{
+    color:$ui-font-color-gray-dark
+  }
+  .conts{
+    margin-top: $rem(10px);
+    position: relative
+    input{
+      font-size: $rem(28px);
+    }
+    .ui-input-text{
+      $box-sizing(border-box)
+      width: 100%
+    }
+    .ui-btn{
+      {$public-center-vertical}
+      right: 0
+      border: 0 none;
+      padding: 0;
+      width:$rem(230px);
+      border-top-left-radius:0;
+      border-bottom-left-radius:0;
+      height: 100%
+    }
+  }
+}
+//--------------------------------------------------------【列表】
+
+//可操作列表模块
+.ui-list-more {
+  font-size: $rem(28px);
+  color: $ui-font-color-black
+  background-color #fff
+  line-height: $rem(95px);
+  li {
+    position: relative
+    margin-left: $rem(100px);
+    & + li {
+      border-top: 1px solid $ui-line-color-form-gray
+    }
+  }
+  .tit {
+    color: $ui-font-color-black
+  }
+  .cont {
+    position: absolute
+    right: $rem(60px);
+    top: 0
+    color: $ui-font-color-gray-neutral
+  }
+  .list-icon {
+    position: absolute
+    left: $rem(-70px);
+    top: 50%
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: $rem(40px);
+    color: $ui-global-color-main
+  }
+  .more-icon {
+    position: absolute
+    right: $rem(25px);
+    top: 50%
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: $rem(30px);
+    color: #c2c2c2
+  }
+}
+
+//主副信息（双行）列表模块：
+.ui-list-double {
+  margin-left: $rem(30px);
+  li {
+    height: $rem(140px);
+    position: relative
+    & + li {
+      border-top: 1px solid $ui-line-color-form-gray
+    }
+    .tits {
+      font-size: $rem(28px);
+      color: $ui-font-color-black
+    }
+    .conts {
+      margin-top: $rem(20px);
+      font-size: $rem(24px);
+      color: $ui-font-color-gray-neutral
+    }
+    .column-left, .column-right {
+      {$public-center-vertical}
+    }
+    .column-left {
+      left: 0
+      text-align left
+    }
+    .column-right {
+      right: $rem(30px);
+      text-align right
+    }
+  }
+}
+
+//单行信息列表模块
+.ui-list-single{
+  margin-left: $rem(30px);
+  li {
+    height: $rem(88px);
+    position: relative
+    & + li {
+      border-top: 1px solid $ui-line-color-form-gray
+    }
+    .column-left, .column-right {
+      {$public-center-vertical}
+      font-size: $rem(24px);
+    }
+    .column-left {
+      left: 0
+      text-align left
+      color: $ui-font-color-gray-dark
+    }
+    .column-right {
+      right: $rem(30px);
+      text-align right
+      color: $ui-font-color-gray-neutral
+    }
+  }
+}
+//表格
+.ui-table{
+  width: 100%
+  border-bottom: 1px solid #e6e6e6
+  thead{
+    tr{
+      background-color $ui-bg-color-gray
+      th{
+        line-height: $rem(70px);
+        font-size: $rem(24px);
+        color:$font-color-gray-dar
+        text-align: center
+        &:first-child{
+          padding-left: $rem(30px);
+          text-align left;
+        }
+        &:last-child{
+          padding-right: $rem(30px);
+          text-align: right
+        }
+      }
+    }
+  }
+  tbody{
+    padding-left: $rem(30px);
+    tr{
+      position: relative
+      background-color #fff
+      td{
+        line-height: $rem(88px);
+        font-size: $rem(24px);
+        color:$ui-font-color-black
+        border-bottom: 1px solid $ui-line-color-form-gray
+        text-align: center
+        &:first-child{
+          position: relative
+          padding-left: $rem(30px);
+          text-align left;
+          &:before{
+            content: ' '
+            display: block
+            position: absolute
+            left: 0
+            bottom: -1px
+            height: 100%
+            width: $rem(30px);
+            background-color #fff
+          }
+        }
+        &:last-child{
+          padding-right: $rem(30px);
+          text-align: right
+        }
+      }
+      &:last-child{
+        td{
+          border-bottom: 0 none
+          &:first-child:before{
+            display: none
+          }
+        }
+      }
+    }
+  }
+}
+
+//--------------------------------------------------------【数据加载状态】
+.ui-load-state {
+  .describe-con {
+    {$public-center-vertical}
+    width: 100%
+    top: 45%
+    text-align: center
+    font-size: $rem(32px)
+    color: $ui-font-color-gray-dark
+    .no-date& {
+      padding-top: $rem(300px);
+      background url("../image/page-state/nolist_pic@2x.png") no-repeat center top
+      background-size $rem(200px auto);
+    }
+    .system-busy& {
+      padding-top: $rem(300px);
+      background url("../image/page-state/nowifi_pic@2x.png") no-repeat center top
+      background-size $rem(200px auto)
+    }
+    .load-ing& {
+      padding-top: $rem(320px);
+      background url("../image/page-state/loading/loading_h5@2x.gif") no-repeat center top
+      background-size $rem(320px auto)
+    }
+    .app-download& {
+      padding-top: $rem(250px);
+      background url("../image/moneybaby/lookforward.png") no-repeat center top
+      background-size $rem(158px auto)
+    }
+    .not-found& {
+      padding-top: $rem(300px);
+      background url("../image/page-state/404_pic@2x.png") no-repeat center top
+      background-size $rem(200px auto)
+      top: 30%
+    }
+  }
+  .btn-con {
+    position: absolute
+    top: 70%
+    width: 100%
+    text-align: center
+    .not-found& {
+      top: 55%
+    }
+    a {
+      display: block
+      width: $rem(275px);
+      margin: 0 auto
+      line-height: $rem(70px);
+      border: 1px solid $ui-font-color-gray-neutral
+      color $ui-font-color-gray-neutral
+      border-radius $rem(100px);
+      font-size: $rem(32px);
+      & + a {
+        margin-top: $rem(20px);
+      }
+      &.red{
+        color $ui-font-color-red;
+        border-color $ui-font-color-red;
+      }
+      &.common-link{
+        width: auto
+        text-align: center
+        line-height: inherit
+        text-decoration underline
+        border:0 none
+        font-size $rem(28px);
+        color:#666
+      }
+    }
+  }
+}
+.ui-load-bg{
+  height: 100%
+  background url("../image/loading.gif")  no-repeat center center;
+  background-size $rem(32px)
+}
+
+//--------------------------------------------------------【iconfont】
+/*iconfont*/
+@font-face {
+  $font-face(iconfont, 'iconfont/iconfont');
+}
+
+[class^=icon-],
+[class*='icon-'],
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-nav-list:before {
+  content: "\e626";
+  .on & {
+    content: "\e627";
+  }
+}
+
+.icon-nav-home:before {
+  content: "\e61d";
+  .on & {
+    content: "\e61e";
+  }
+}
+
+.icon-nav-user:before {
+  content: "\e623";
+  .on & {
+    content: "\e624";
+  }
+}
+
+.icon-nav-more:before {
+  content: "\e620";
+  .on & {
+    content: "\e621";
+  }
+}
+.icon-nav-me:before {
+  content: "\e63e";
+  .on & {
+    content: "\e63f";
+  }
+}
+
+.icon-security:before {
+  content: "\e607"
+}
+
+.icon-pro-mark:before {
+  content: "\e632"
+}
+
+.icon-wing:before {
+  content: "\e612"
+}
+
+.icon-envelope:before {
+  content: "\e62d"
+}
+
+.icon-bankCard:before {
+  content: "\e613"
+}
+
+.icon-arrow-right:before {
+  content: "\e634"
+}
+
+.icon-arrow-bottom:before {
+  content: "\e635"
+}
+
+.icon-tick-solid:before {
+  content: "\e609"
+}
+
+.icon-tick-hollow:before {
+  content: "\e608"
+}
+
+.icon-cross-hollow:before {
+  content: "\e616"
+}
+
+.icon-gift:before {
+  content: "\e60e"
+}
+
+.icon-envelop:before {
+  content: "\e619"
+}
+
+.icon-shield:before {
+  content: "\e606"
+}
+
+.icon-query:before {
+  content: "\e633"
+}
+
+.icon-tel:before {
+  content: "\e605"
+}
+
+.icon-phone:before {
+  content: "\e60b"
+}
+
+.icon-clock:before {
+  content: "\e62b";
+}
+.icon-clock-solid:before{
+  content: "\e638";
+}
+.icon-money:before{
+  content: "\e615";
+}
+.icon-purse:before{
+  content: "\e602";
+}

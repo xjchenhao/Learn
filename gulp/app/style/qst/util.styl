@@ -1,0 +1,138 @@
+@import "variables"
+
+//建立 BFC 清除元素内部的浮动，使元素获得应有的高度。
+$clearfix() {
+  if $support-old-ie{
+    \*zoom: 1
+  }
+  &:before,
+  &:after{
+    display: table
+    content: ""
+  }
+  &:after{
+    clear: both
+  }
+}
+// 设定元素的尺寸，一个参数为正方形，两个参数分别为宽高
+$size(size, height = size) {
+  width:size
+  height:height
+}
+//rem换算
+$margin-rem() {
+  val = ''
+  for n in arguments {
+    val = val+ unit(n /$default-font-size, rem) + ' '
+  }
+  if $original-size{
+    margin:arguments;
+  }
+  margin: s(val)
+}
+$margin-top-rem() {
+  if $original-size{
+    margin-top:arguments;
+  }
+  margin-top: unit(arguments /$default-font-size, rem)
+}
+$margin-right-rem() {
+  if $original-size{
+    margin-right:arguments;
+  }
+  margin-right:unit(arguments /$default-font-size, rem)
+}
+$margin-bottom-rem() {
+  if $original-size{
+    margin-bottom:arguments;
+  }
+  margin-bottom: unit(arguments /$default-font-size, rem)
+}
+$margin-left-rem() {
+  if $original-size{
+    margin-left:arguments;
+  }
+  margin-left: unit(arguments /$default-font-size, rem)
+}
+$padding-rem() {
+  val = ''
+  for n in arguments {
+    val = val+ unit(n /$default-font-size, rem) + ' '
+  }
+  if $original-size{
+    padding:arguments;
+  }
+  padding: s(val)
+}
+$padding-top-rem() {
+  if $original-size{
+    padding-top:arguments;
+  }
+  padding-top: unit(arguments /$default-font-size, rem)
+}
+$padding-right-rem() {
+  if $original-size{
+    padding-right:arguments;
+  }
+  padding-right:unit(arguments /$default-font-size, rem)
+}
+$padding-bottom-rem() {
+  if $original-size{
+    padding-bottom:arguments;
+  }
+  padding-bottom: unit(arguments /$default-font-size, rem)
+}
+$padding-left-rem() {
+  if $original-size{
+    padding-left:arguments;
+  }
+  padding-left: unit(arguments /$default-font-size, rem)
+}
+$top-rem() {
+  if $original-size{
+    top:arguments;
+  }
+  top: unit(arguments /$default-font-size, rem)
+}
+$right-rem() {
+  if $original-size{
+    right:arguments;
+  }
+  right:unit(arguments /$default-font-size, rem)
+}
+$bottom-rem() {
+  if $original-size{
+    bottom:arguments;
+  }
+  bottom: unit(arguments /$default-font-size, rem)
+}
+$left-rem() {
+  if $original-size{
+    left:arguments;
+  }
+  left: unit(arguments /$default-font-size, rem)
+}
+$height-rem(){
+  if $original-size{
+    height:arguments;
+  }
+  height: unit(arguments /$default-font-size, rem)
+}
+$width-rem(){
+  if $original-size{
+    width:arguments;
+  }
+  width: unit(arguments /$default-font-size, rem)
+}
+//rem万金油
+$rem(){
+  val = ''
+  for n in arguments {
+    if n is 'auto' {
+      val = val+ 'auto '
+    }else{
+      val = val+ unit(n /$default-font-size, rem) + ' '
+    }
+  }
+  return s(val)
+}

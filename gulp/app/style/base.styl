@@ -1,0 +1,95 @@
+@import "qst/all"
+$global-reset();
+$viewsize();
+$oocss(true);
+
+$default-font-size = 17.77777778px;
+$support-old-ie = false;
+$original-size = false;
+
+.js_hide{
+  display: none !important
+}
+
+a {
+  display: block
+  color: inherit
+}
+
+body {
+  font-family: $default-mobile-font-family
+  background-color: #fff
+}
+
+//--------------------------------------------------------【基础布局】
+.viewport {
+  margin: 0 auto
+  position: relative
+}
+
+.page,
+.page > .viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+//--------------------------------------------------------【页面加载中遮罩】
+#pageLoading {
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 9999
+  background rgba(255, 255, 255, .8) url("../image/loading.gif") no-repeat center center
+}
+//--------------------------------------------------------【单页转场样式】
+.in {
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 350ms;
+  animation-timing-function: ease-out;
+  animation-duration: 350ms;
+}
+.out {
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-duration: 225ms;
+  animation-timing-function: ease-in;
+  animation-duration: 225ms;
+}
+.fade.out {
+  opacity: 0;
+  -webkit-animation-duration: 125ms;
+  -webkit-animation-name: fadeout;
+  animation-duration: 125ms;
+  animation-name: fadeout;
+}
+.fade.in {
+  opacity: 1;
+  -webkit-animation-duration: 225ms;
+  -webkit-animation-name: fadein;
+  animation-duration: 225ms;
+  animation-name: fadein;
+}
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-webkit-keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

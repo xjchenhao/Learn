@@ -1,0 +1,65 @@
+//--------------------------------------------------------【UI规范-颜色】
+
+//钱庄主色
+$ui-global-color-main = #f35343;
+
+//背景灰
+$ui-bg-color-gray = #f6f6f6;
+
+//--------------------------------------------------------【UI规范-文字颜色】
+
+//纯白：按钮等反白文字
+$ui-font-color-white = #fff;
+
+//浅灰：输入框中默认显示描述或帮助性文字
+$ui-font-color-gray-light = #ccc;
+
+//中灰色：辅助、说明文字
+$ui-font-color-gray-neutral = #999;
+
+//深灰：次级标题、部分正文文字、导航栏tab按钮文字
+$ui-font-color-gray-dark = #666;
+
+//深黑：顶部导航名称，标题、金额等主要文字
+$ui-font-color-black = #333;
+
+//红色：重要醒目文字
+$ui-font-color-red = #f35343;
+
+//蓝色：链接文字
+$ui-font-color-blue = #007aff;
+
+//--------------------------------------------------------【UI规范-列表线条色】
+
+//置于白色背景上的分割线
+$ui-line-color-form-white=#ccc;
+
+//置于灰色背景上的分割线
+$ui-line-color-form-gray=#e6e6e6;
+
+//--------------------------------------------------------【工具代码块】
+
+//垂直居中
+$public-center-vertical =@block{
+  position: absolute
+  top: 50%
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//水平居中
+$public-center-horizontally =@block{
+  position: absolute
+  left: 50%
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+//水平垂直居中
+$public-center-completely =@block{
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

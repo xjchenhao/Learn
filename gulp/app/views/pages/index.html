@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>钱庄理财</title>
+    <link rel="stylesheet" href="../../style/mobilebone.css">
+    <link rel="stylesheet" href="../../style/base.css">
+    <link rel="stylesheet" href="../../style/qianui.css">
+    <link rel="stylesheet" href="../../style/style.css">
+</head>
+<body>
+<section id="pageHome" class="page out" data-title="首页" data-onpagefirstinto="homeInit"
+         data-callback="homeInto" data-fallback="homeOut">
+</section>
+<section id="pageProList" class="page out" data-title="理财产品" data-onpagefirstinto="listInit"
+         data-callback="listInto" data-fallback="listOut">
+</section>
+<section id="pageUser" class="page out" data-title="我的钱庄" data-onpagefirstinto="userInit"
+         data-callback="userInto" data-fallback="userOut">
+</section>
+<section id="pageMore" class="page out" data-title="更多" data-onpagefirstinto="moreInit"
+         data-callback="moreInto" data-fallback="moreOut">
+</section>
+<footer id="homeNavbar">
+    <div class="viewport">
+        <ul>
+            <li><a href="#pageHome" data-rel="auto"><i class="icon icon-nav-home"></i><span>钱庄</span></a></li>
+            <li><a href="#pageProList" data-rel="auto"><i class="icon icon-nav-list"></i><span>理财</span></a></li>
+            <li><a href="#pageUser" data-rel="auto"><i class="icon icon-nav-user"></i><span>资产</span></a></li>
+            <li><a href="#pageMore" data-rel="auto"><i class="icon icon-nav-me"></i><span>我</span></a></li>
+        </ul>
+    </div>
+</footer>
+<section id="pageLoading"></section>
+<script src="../../script/zepto.js"></script>
+<script src="../../script/route/common.js"></script>
+<script src="../../script/route/routeHome.js"></script>
+</body>
+</html>
