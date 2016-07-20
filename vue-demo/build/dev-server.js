@@ -7,13 +7,16 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
-// default port where dev server listens for incoming traffic
+// 默认端口号
 var port = process.env.PORT || config.dev.port
-// Define HTTP proxies to your custom API backend
+
+// 定义您的自定义HTTP代理API的后端
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+// webpack编译器
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -25,7 +28,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler)
-// force page reload when html-webpack-plugin template changes
+// `html-webpack-plugin`更改时,强制页面重新加载
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
     hotMiddleware.publish({ action: 'reload' })
@@ -33,7 +36,7 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
-// proxy api requests
+// 代理api请求
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
@@ -42,17 +45,17 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(proxyMiddleware(context, options))
 })
 
-// handle fallback for HTML5 history API
+// 处理为 HTML5 历史 API 回退
 app.use(require('connect-history-api-fallback')())
 
-// serve webpack bundle output
+// 服务`webpack`束输出(serve webpack bundle output)
 app.use(devMiddleware)
 
-// enable hot-reload and state-preserving
-// compilation error display
+// 使热重新加载和保存状态
+// 编译错误显示
 app.use(hotMiddleware)
 
-// serve pure static assets
+// 纯静态资源
 var staticPath = path.posix.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
