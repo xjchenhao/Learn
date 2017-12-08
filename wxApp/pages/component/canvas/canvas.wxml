@@ -1,0 +1,6 @@
+<!-- canvas.wxml -->
+<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+<!-- 当使用绝对定位时，文档流后边的canvas的显示层级高于前边的canvas-->
+<canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas"></canvas>
+<!-- 因为canvas-id与前一个canvas重复，该canvas不会显示，并会发送一个错误事件到AppService -->
+<canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" binderror="canvasIdErrorCallback"></canvas>

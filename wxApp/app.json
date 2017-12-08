@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/component/canvas/canvas",
+    "pages/component/map/map",
+    "pages/component/media/video",
+    "pages/component/media/image",
+    "pages/component/media/audio",
+    "pages/component/nav/navigator",
+    "pages/component/feedback/loading",
+    "pages/component/feedback/toast",
+    "pages/component/feedback/modal",
+    "pages/component/feedback/action-sheet",
+    "pages/component/form/switch",
+    "pages/component/form/slider", 
+    "pages/component/form/radio", 
+    "pages/component/form/picker", 
+    "pages/component/form/label", 
+    "pages/component/form/input", 
+    "pages/component/form/form", 
+    "pages/component/form/checkbox", 
+    "pages/component/form/button", 
+    "pages/component/base/progress",  
+    "pages/component/base/text",    
+    "pages/component/base/icon",    
+    "pages/component/view/swiper",
+    "pages/component/view/scrollView",
+    "pages/component/view/view",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "日志"
+    },{
+      "pagePath": "pages/component/canvas/canvas",
+      "text": "canvas"
+    }]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      "weex-html5@^0.2.23-beta",
+      "/usr/local/lib/node_modules/weex-toolkit"
+    ]
+  ],
+  "_cnpm_publish_time": 1467714022520,
+  "_from": "weex-html5@>=0.2.23-beta <0.3.0",
+  "_id": "weex-html5@0.2.23",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/weex-toolkit/weex-html5",
+  "_nodeVersion": "4.4.5",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/weex-html5-0.2.23.tgz_1467714019996_0.585078745149076"
+  },
+  "_npmUser": {
+    "email": "tekkahs@gmail.com",
+    "name": "mr.raindrop"
+  },
+  "_npmVersion": "2.15.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "weex-html5",
+    "raw": "weex-html5@^0.2.23-beta",
+    "rawSpec": "^0.2.23-beta",
+    "scope": null,
+    "spec": ">=0.2.23-beta <0.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/weex-toolkit"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/weex-html5/download/weex-html5-0.2.23.tgz",
+  "_shasum": "ba860ce0f2c8cb6b5c6f5449f9ff297fca35c2f5",
+  "_shrinkwrap": null,
+  "_spec": "weex-html5@^0.2.23-beta",
+  "_where": "/usr/local/lib/node_modules/weex-toolkit",
+  "author": {
+    "name": "mr.raindrop"
+  },
+  "bugs": {
+    "url": "https://github.com/alibaba/weex/issues"
+  },
+  "dependencies": {},
+  "description": "Weex HTML5 Renderer",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "noattachment": false,
+    "shasum": "ba860ce0f2c8cb6b5c6f5449f9ff297fca35c2f5",
+    "size": 1005500,
+    "tarball": "http://registry.npm.taobao.org/weex-html5/download/weex-html5-0.2.23.tgz"
+  },
+  "homepage": "https://alibaba.github.io/weex",
+  "keywords": [
+    "html5",
+    "weex"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/weex.common.js",
+  "maintainers": [
+    {
+      "name": "mr.raindrop",
+      "email": "tekkahs@gmail.com"
+    }
+  ],
+  "name": "weex-html5",
+  "optionalDependencies": {},
+  "publish_time": 1467714022520,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alibaba/weex.git"
+  },
+  "scripts": {},
+  "version": "0.2.23"
+}

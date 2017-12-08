@@ -1,0 +1,12 @@
+<view class="body-view">
+  <toast hidden="{{toast1Hidden}}" bindchange="toast1Change">
+    默认
+  </toast>
+  <button type="default" bindtap="toast1Tap">点击弹出默认toast</button>
+</view>
+<view class="body-view">
+  <toast hidden="{{toast2Hidden}}" duration="3000" bindchange="toast2Change">
+    设置duration
+  </toast>
+  <button type="default" bindtap="toast2Tap">点击弹出设置duration的toast</button>
+</view>
