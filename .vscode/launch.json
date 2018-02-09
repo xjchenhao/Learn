@@ -10,9 +10,7 @@
             "name": "array-first测试",
             "runtimeExecutable": "npm",
             "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
-            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-first",
-            // "port": 9229
-            // "program": "${workspaceFolder}/array-first/index.js"
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-first"
         }
     ]
 }
