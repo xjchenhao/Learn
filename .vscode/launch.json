@@ -11,6 +11,14 @@
             "runtimeExecutable": "npm",
             "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
             "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-first"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "array-last测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-last"
         }
     ]
 }
