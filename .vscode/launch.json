@@ -4,12 +4,13 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
             "type": "node",
             "request": "launch",
             "name": "array-first测试",
             "runtimeExecutable": "npm",
-            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            "runtimeArgs": [ "run-script", "test", "--"],
             "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-first"
         },
         {
@@ -19,6 +20,66 @@
             "runtimeExecutable": "npm",
             "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
             "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-last"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "arr-flatten测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/arr-flatten"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "dedupe测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/dedupe"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "array-range测试",
+            "runtimeExecutable": "npm",
+            "windows": { "runtimeExecutable": "npm.cmd" },
+            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            // "console": "integratedTerminal",
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/array-range"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "arr-diff测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test", "--", "--inspect-brk" ],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/arr-diff"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "filled-array测试",
+            "runtimeExecutable": "npm",
+            // "protocol":"legacy",
+            "runtimeArgs": [ "run-script", "test", "--"],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/filled-array"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "map-array测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test", "--"],
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/map-array"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "in-array测试",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "run-script", "test"],
+            "console":"integratedTerminal",
+            "cwd": "${workspaceRoot}/awesome-micro-npm-packages/in-array"
         }
     ]
 }
